@@ -1,0 +1,5 @@
+Library
+/*.csproj
+/obj/Debug
+/Packages/manifest.json
+/Project Wild Strawberry.sln
