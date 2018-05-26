@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class BuildingHolder : MonoBehaviour
+public class BuildingPlacer : MonoBehaviour
 {
 	[SerializeField]
 	private BuildingsVariable AllBuildings;

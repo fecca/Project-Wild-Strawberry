@@ -16,11 +16,14 @@ public class Building : MonoBehaviour
 	[SerializeField]
 	private Material PlacingMaterial;
 	[SerializeField]
-	private Renderer Renderer;
+	private Renderer[] Renderers;
 
 	private void OnEnable()
 	{
-		Renderer.material = PlacingMaterial;
+		foreach (var renderer in Renderers)
+		{
+			renderer.sharedMaterial = PlacingMaterial;
+		}
 		State = BuildingState.Placing;
 	}
 
@@ -39,7 +42,10 @@ public class Building : MonoBehaviour
 	public void Place()
 	{
 		BuiltBuildings.Add(this);
-		Renderer.material = Material;
+		foreach (var renderer in Renderers)
+		{
+			renderer.sharedMaterial = Material;
+		}
 		State = BuildingState.Built;
 	}
 

@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class BuildingButton : MonoBehaviour
 {
 	[SerializeField]
-	private BuildingEvent OnSelectBuilding;
+	private BuildingEvent OnBuildingSelected;
 	[SerializeField]
 	private Text Text;
 
@@ -30,7 +30,7 @@ public class BuildingButton : MonoBehaviour
 	{
 		if (m_building != null)
 		{
-			OnSelectBuilding.Raise(m_building);
+			OnBuildingSelected.Raise(m_building);
 		}
 	}
 }
