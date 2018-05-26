@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public enum BuildingState
 {
@@ -15,11 +16,19 @@ public class Building : MonoBehaviour
 	private BuildingRuntimeSet BuiltBuildings;
 	[SerializeField]
 	private BuildingState State;
+	[SerializeField]
+	private Image Icon;
+	[SerializeField]
+	private Material Material;
+	[SerializeField]
+	private Material PlacingMaterial;
+	[SerializeField]
+	private Renderer Renderer;
 
 	private void OnEnable()
 	{
 		AvailableBuildings.Remove(this);
-
+		Renderer.material = PlacingMaterial;
 		State = BuildingState.Placing;
 	}
 
@@ -40,7 +49,7 @@ public class Building : MonoBehaviour
 	public void Place()
 	{
 		BuiltBuildings.Add(this);
-
+		Renderer.material = Material;
 		State = BuildingState.Built;
 	}
 
