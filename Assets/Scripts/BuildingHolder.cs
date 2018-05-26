@@ -33,17 +33,11 @@ public class BuildingHolder : MonoBehaviour
 		}
 	}
 
-	public void SelectBuilding()
+	public void SelectBuilding(Building building)
 	{
-		var itemCount = AvailableBuildings.Items.Count;
-		if (itemCount > 0)
-		{
-			var building = AvailableBuildings.Items[0];
-			building.gameObject.SetActive(true);
-
-			m_activeBuilding = building;
-			FollowMouse();
-		}
+		m_activeBuilding = building;
+		m_activeBuilding.gameObject.SetActive(true);
+		FollowMouse();
 	}
 
 	public void ResetBuildings()
@@ -52,12 +46,6 @@ public class BuildingHolder : MonoBehaviour
 		{
 			BuiltBuildings.Items[i].gameObject.SetActive(false);
 		}
-		//var itemCount = BuiltBuildings.Items.Count;
-		//if (itemCount > 0)
-		//{
-		//	var building = BuiltBuildings.Items[0];
-		//	building.gameObject.SetActive(false);
-		//}
 	}
 
 	private void Update()

@@ -8,7 +8,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb13bbfb08ee2184e987aed83fafe5c2, type: 3}
-  m_Name: PlayerHealth
-  m_EditorClassIdentifier: 
-  Value: 22.5
+  m_Script: {fileID: 0}
+  m_Name: OnBuildingsReset
+  m_EditorClassIdentifier: Assembly-CSharp::GenericEvent

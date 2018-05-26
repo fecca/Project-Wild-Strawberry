@@ -1,13 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public enum BuildingState
-{
-	Inactive,
-	Placing,
-	Constructing,
-	Built,
-}
 public class Building : MonoBehaviour
 {
 	[SerializeField]
@@ -16,6 +9,8 @@ public class Building : MonoBehaviour
 	private BuildingRuntimeSet BuiltBuildings;
 	[SerializeField]
 	private BuildingState State;
+
+	[Header("Visuals")]
 	[SerializeField]
 	private Image Icon;
 	[SerializeField]

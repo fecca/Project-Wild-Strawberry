@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-public class GameEventListener : MonoBehaviour
+public class GenericEventListener : MonoBehaviour
 {
 	[SerializeField]
-	private GameEvent Event;
+	private GenericEvent Event;
 	[SerializeField]
 	private UnityEvent Response;
 
