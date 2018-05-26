@@ -189,6 +189,7 @@ GameObject:
   - component: {fileID: 359844443}
   - component: {fileID: 359844442}
   - component: {fileID: 359844441}
+  - component: {fileID: 359844445}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -252,13 +253,41 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 359844440}
-  m_LocalRotation: {x: 0.35355374, y: 0.612372, z: -0.35355312, w: 0.61237293}
+  m_LocalRotation: {x: 0.27059802, y: 0.6532815, z: -0.27059802, w: 0.65328145}
   m_LocalPosition: {x: 0, y: 13.66, z: -16.81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 60.000004, y: 90.00001, z: 0}
+  m_LocalEulerAnglesHint: {x: 45, y: 90.00001, z: 0}
+--- !u!114 &359844445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 359844440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6707e938607905540b12326ac4aa1169, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Camera: {fileID: 359844443}
+  MaxZoomFieldOfView:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: d0c7b533b432f8b48864703a7551e9c7, type: 2}
+  MinZoomFieldOfView:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 0fb55ad5beafa3b4aaad0dfb60ff1d6e, type: 2}
+  ZoomSensitivity:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 225fb9e61d2e4254ba7955ef40b689c3, type: 2}
+  ZoomSpeed:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: d8ce298a69c88b14c97f5cbb9f9af3b0, type: 2}
 --- !u!1 &1020647367
 GameObject:
   m_ObjectHideFlags: 0
