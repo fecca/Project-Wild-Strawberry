@@ -20,7 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4010354393544770}
   - component: {fileID: 114975500218079244}
-  m_Layer: 0
+  - component: {fileID: 65718785546462228}
+  m_Layer: 10
   m_Name: Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,8 +38,7 @@ GameObject:
   - component: {fileID: 4914973181329972}
   - component: {fileID: 33249189831679426}
   - component: {fileID: 23712094659622964}
-  - component: {fileID: 65527794793301002}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,8 +55,7 @@ GameObject:
   - component: {fileID: 4470214991163508}
   - component: {fileID: 33851744434709566}
   - component: {fileID: 23440128025330900}
-  - component: {fileID: 65389554977466486}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,8 +72,7 @@ GameObject:
   - component: {fileID: 4400408019383510}
   - component: {fileID: 33885732934038702}
   - component: {fileID: 23158075742130914}
-  - component: {fileID: 65308868045949750}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +86,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1158395720106240}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -70, y: 30, z: 71.1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.75, y: 1.25, z: 0.75}
   m_Children:
   - {fileID: 4470214991163508}
@@ -262,42 +260,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1679354983353968}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &65308868045949750
+--- !u!65 &65718785546462228
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1679354983353968}
+  m_GameObject: {fileID: 1158395720106240}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65389554977466486
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1485588862982010}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65527794793301002
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1404656493815566}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.5, y: 1.5, z: 1.5}
+  m_Center: {x: 0, y: 0.75, z: 0}
 --- !u!114 &114975500218079244
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -311,7 +285,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BuiltBuildings: {fileID: 11400000, guid: ba91dec93a6673e469437455743d83bd, type: 2}
   State: 0
-  Icon: {fileID: 0}
+  OnClick: {fileID: 0}
   Material: {fileID: 2100000, guid: 2733b60e927b0864fba5632f2458e8fa, type: 2}
   PlacingMaterial: {fileID: 2100000, guid: 99c1668f338500a49a52f21b09c50607, type: 2}
   Renderers:

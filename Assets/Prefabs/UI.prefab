@@ -58,6 +58,7 @@ GameObject:
   - component: {fileID: 114060907710650874}
   - component: {fileID: 114564138757349052}
   - component: {fileID: 114333782814239692}
+  - component: {fileID: 114347904824918478}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -266,6 +267,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AllBuildings: {fileID: 11400000, guid: d9d163cf8c6751b40a59c1b476eb82c3, type: 2}
   BuildingButtonTemplate: {fileID: 114433582367061308}
+--- !u!114 &114347904824918478
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1648028691916830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89cdbb56b2b55eb4fabdaf3c0e31a98f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: fe7f7bfc06fc044438bc6c33a06467ed, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114333782814239692}
+        m_MethodName: OpenBuildingMenu
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: BuildingUnityEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &114433582367061308
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -277,7 +306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48b96555a79f4184b9981fe793228dc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnSelectBuilding: {fileID: 11400000, guid: 6ca5234a3e69b2d4182a988510d62986, type: 2}
+  OnBuildingSelected: {fileID: 11400000, guid: 6ca5234a3e69b2d4182a988510d62986, type: 2}
   Text: {fileID: 114585911213720374}
 --- !u!114 &114564138757349052
 MonoBehaviour:
@@ -327,7 +356,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: House
+  m_Text: Select Building
 --- !u!114 &114902489810845156
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -387,7 +416,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Reset
+  m_Text: Reset Buildings
 --- !u!222 &222208580600845988
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -468,7 +497,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -600, y: -275}
+  m_AnchoredPosition: {x: -600, y: -310}
   m_SizeDelta: {x: 120, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224260630005503004
@@ -505,7 +534,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 84, y: -275}
+  m_AnchoredPosition: {x: -470, y: -310}
   m_SizeDelta: {x: 120, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224983774879905650

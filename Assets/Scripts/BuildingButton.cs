@@ -18,7 +18,7 @@ public class BuildingButton : MonoBehaviour
 
 	public void SetPosition(Vector3 position)
 	{
-		transform.position = position;
+		transform.position += position;
 	}
 
 	public void SetBuildingReference(Building building)

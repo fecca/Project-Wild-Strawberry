@@ -2,6 +2,5 @@
 {
 	Inactive,
 	Placing,
-	Constructing,
 	Built,
 }

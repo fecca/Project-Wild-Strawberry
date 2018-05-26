@@ -17,10 +17,10 @@ public class CameraController : MonoBehaviour
 
 	private void LateUpdate()
 	{
-		var distanceToGround = DistanceToGround();
 		zoomPos += Input.GetAxis("Mouse ScrollWheel") * Time.deltaTime * ZoomSensitivity.Value;
 		zoomPos = Mathf.Clamp01(zoomPos);
 
+		var distanceToGround = DistanceToGround();
 		var targetHeight = Mathf.Lerp(MinZoomFieldOfView.Value, MaxZoomFieldOfView.Value, zoomPos);
 		var difference = 0f;
 

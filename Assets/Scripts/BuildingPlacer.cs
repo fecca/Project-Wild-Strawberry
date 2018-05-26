@@ -22,7 +22,7 @@ public class BuildingPlacer : MonoBehaviour
 	private void FollowMouse()
 	{
 		RaycastHit hit;
-		if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 1 << LayerMask.NameToLayer("Ground")))
+		if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100f, 1 << LayerMask.NameToLayer("Ground")))
 		{
 			m_activeBuilding.transform.position = hit.point;
 		}
@@ -31,6 +31,7 @@ public class BuildingPlacer : MonoBehaviour
 	public void SelectBuilding(Building building)
 	{
 		m_activeBuilding = Instantiate(building);
+		m_activeBuilding.gameObject.name = building.gameObject.name;
 		FollowMouse();
 	}
 
@@ -49,12 +50,6 @@ public class BuildingPlacer : MonoBehaviour
 			if (m_activeBuilding.GetState() == BuildingState.Placing)
 			{
 				FollowMouse();
-
-				if (Input.GetMouseButtonDown(0))
-				{
-					m_activeBuilding.Place();
-					m_activeBuilding = null;
-				}
 
 				if (Input.GetMouseButtonUp(1))
 				{

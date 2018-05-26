@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using System;
+using UnityEngine;
 
 public class Building : MonoBehaviour
 {
@@ -7,10 +7,10 @@ public class Building : MonoBehaviour
 	private BuildingRuntimeSet BuiltBuildings;
 	[SerializeField]
 	private BuildingState State;
-
-	[Header("Visuals")]
 	[SerializeField]
-	private Image Icon;
+	private BuildingEvent OnClick;
+
+	[Header("Rendering")]
 	[SerializeField]
 	private Material Material;
 	[SerializeField]
@@ -39,7 +39,24 @@ public class Building : MonoBehaviour
 		BuiltBuildings.Remove(this);
 	}
 
-	public void Place()
+	public void Interact()
+	{
+		switch (State)
+		{
+			case BuildingState.Inactive:
+				break;
+			case BuildingState.Placing:
+				Place();
+				break;
+			case BuildingState.Built:
+				OpenBuildingMenu();
+				break;
+			default:
+				throw new NotSupportedException("BuildingState not supported: " + State);
+		}
+	}
+
+	private void Place()
 	{
 		BuiltBuildings.Add(this);
 		foreach (var renderer in Renderers)
@@ -47,6 +64,11 @@ public class Building : MonoBehaviour
 			renderer.sharedMaterial = Material;
 		}
 		State = BuildingState.Built;
+	}
+
+	private void OpenBuildingMenu()
+	{
+		OnClick.Raise(this);
 	}
 
 	public BuildingState GetState()

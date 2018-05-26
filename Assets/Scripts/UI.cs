@@ -7,7 +7,15 @@ public class UI : MonoBehaviour
 	[SerializeField]
 	private BuildingButton BuildingButtonTemplate;
 
+	private BuildingButton m_buildingMenuButton;
+
 	private void Start()
+	{
+		BuildingButtonTemplate.gameObject.SetActive(false);
+		UpdateButtons();
+	}
+
+	public void UpdateButtons()
 	{
 		if (BuildingButtonTemplate == null) { return; }
 		if (AllBuildings == null) { return; }
@@ -17,9 +25,21 @@ public class UI : MonoBehaviour
 			var building = AllBuildings.Value[i];
 			var button = Instantiate(BuildingButtonTemplate, transform) as BuildingButton;
 			button.SetText(building.name);
-			button.SetPosition(button.transform.position + Vector3.up * (40 * i));
+			button.SetPosition(Vector3.up * (40 * i));
 			button.SetBuildingReference(building);
+			button.gameObject.SetActive(true);
 		}
-		BuildingButtonTemplate.gameObject.SetActive(false);
+	}
+
+	public void OpenBuildingMenu(Building building)
+	{
+		if (m_buildingMenuButton == null)
+		{
+			m_buildingMenuButton = Instantiate(BuildingButtonTemplate, transform) as BuildingButton;
+			m_buildingMenuButton.SetPosition(Vector3.up * (40 * 1) + Vector3.right * 130);
+		}
+		m_buildingMenuButton.SetText(building.name);
+		m_buildingMenuButton.SetBuildingReference(building);
+		m_buildingMenuButton.gameObject.SetActive(true);
 	}
 }
