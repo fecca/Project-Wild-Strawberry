@@ -11,6 +11,8 @@ public class BuildingHolder : MonoBehaviour
 	[SerializeField]
 	private bool ClearBuildingsOnAwake;
 
+	private Building m_activeBuilding;
+
 	private void Awake()
 	{
 		if (ClearBuildingsOnAwake)
@@ -22,28 +24,64 @@ public class BuildingHolder : MonoBehaviour
 		InstantiateAllBuildings();
 	}
 
+	private void FollowMouse()
+	{
+		RaycastHit hit;
+		if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 1 << LayerMask.NameToLayer("Ground")))
+		{
+			m_activeBuilding.transform.position = hit.point;
+		}
+	}
+
+	public void SelectBuilding()
+	{
+		var itemCount = AvailableBuildings.Items.Count;
+		if (itemCount > 0)
+		{
+			var building = AvailableBuildings.Items[0];
+			building.gameObject.SetActive(true);
+
+			m_activeBuilding = building;
+			FollowMouse();
+		}
+	}
+
+	public void ResetBuildings()
+	{
+		for (int i = BuiltBuildings.Items.Count - 1; i >= 0; i--)
+		{
+			BuiltBuildings.Items[i].gameObject.SetActive(false);
+		}
+		//var itemCount = BuiltBuildings.Items.Count;
+		//if (itemCount > 0)
+		//{
+		//	var building = BuiltBuildings.Items[0];
+		//	building.gameObject.SetActive(false);
+		//}
+	}
+
 	private void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Return))
+		if (m_activeBuilding != null)
 		{
-			var itemCount = AvailableBuildings.Items.Count;
-			if (itemCount > 0)
+			if (m_activeBuilding.GetState() == BuildingState.Placing)
 			{
-				var index = Random.Range(0, AvailableBuildings.Items.Count);
-				var building = AvailableBuildings.Items[index];
-				building.gameObject.SetActive(true);
-			}
-		}
+				FollowMouse();
 
-		if (Input.GetKeyDown(KeyCode.Space))
-		{
-			var itemCount = BuiltBuildings.Items.Count;
-			if (itemCount > 0)
-			{
-				var index = Random.Range(0, BuiltBuildings.Items.Count);
-				var building = BuiltBuildings.Items[index];
-				building.gameObject.SetActive(false);
+				if (Input.GetMouseButtonDown(0))
+				{
+					m_activeBuilding.Place();
+					m_activeBuilding = null;
+				}
+
+				if (Input.GetMouseButtonUp(1))
+				{
+					m_activeBuilding.gameObject.SetActive(false);
+					m_activeBuilding = null;
+				}
 			}
+
+			return;
 		}
 	}
 
