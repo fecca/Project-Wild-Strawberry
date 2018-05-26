@@ -265,9 +265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllBuildings: {fileID: 11400000, guid: d9d163cf8c6751b40a59c1b476eb82c3, type: 2}
-  AvailableBuildings: {fileID: 11400000, guid: ac37f2a5453a6cd4fafb6bfbb0d3dcf4, type: 2}
   BuildingButtonTemplate: {fileID: 114433582367061308}
-  OnSelectBuilding: {fileID: 11400000, guid: 6ca5234a3e69b2d4182a988510d62986, type: 2}
 --- !u!114 &114433582367061308
 MonoBehaviour:
   m_ObjectHideFlags: 1

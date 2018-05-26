@@ -3,18 +3,18 @@
 public class UI : MonoBehaviour
 {
 	[SerializeField]
-	private BuildingRuntimeSet AvailableBuildings;
+	private BuildingsVariable AllBuildings;
 	[SerializeField]
 	private BuildingButton BuildingButtonTemplate;
 
 	private void Start()
 	{
 		if (BuildingButtonTemplate == null) { return; }
-		if (AvailableBuildings == null) { return; }
+		if (AllBuildings == null) { return; }
 
-		for (var i = AvailableBuildings.Items.Count - 1; i >= 0; i--)
+		for (var i = AllBuildings.Value.Count - 1; i >= 0; i--)
 		{
-			var building = AvailableBuildings.Items[i];
+			var building = AllBuildings.Value[i];
 			var button = Instantiate(BuildingButtonTemplate, transform) as BuildingButton;
 			button.SetText(building.name);
 			button.SetPosition(button.transform.position + Vector3.up * (40 * i));

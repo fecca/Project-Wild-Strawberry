@@ -4,8 +4,6 @@ using UnityEngine.UI;
 public class Building : MonoBehaviour
 {
 	[SerializeField]
-	private BuildingRuntimeSet AvailableBuildings;
-	[SerializeField]
 	private BuildingRuntimeSet BuiltBuildings;
 	[SerializeField]
 	private BuildingState State;
@@ -22,7 +20,6 @@ public class Building : MonoBehaviour
 
 	private void OnEnable()
 	{
-		AvailableBuildings.Remove(this);
 		Renderer.material = PlacingMaterial;
 		State = BuildingState.Placing;
 	}
@@ -30,7 +27,6 @@ public class Building : MonoBehaviour
 	private void OnDisable()
 	{
 		BuiltBuildings.Remove(this);
-		AvailableBuildings.Add(this);
 
 		State = BuildingState.Inactive;
 	}
@@ -38,7 +34,6 @@ public class Building : MonoBehaviour
 	private void OnDestroy()
 	{
 		BuiltBuildings.Remove(this);
-		AvailableBuildings.Remove(this);
 	}
 
 	public void Place()

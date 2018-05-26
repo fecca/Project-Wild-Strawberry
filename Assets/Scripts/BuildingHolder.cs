@@ -5,8 +5,6 @@ public class BuildingHolder : MonoBehaviour
 	[SerializeField]
 	private BuildingsVariable AllBuildings;
 	[SerializeField]
-	private BuildingRuntimeSet AvailableBuildings;
-	[SerializeField]
 	private BuildingRuntimeSet BuiltBuildings;
 	[SerializeField]
 	private bool ClearBuildingsOnAwake;
@@ -17,11 +15,8 @@ public class BuildingHolder : MonoBehaviour
 	{
 		if (ClearBuildingsOnAwake)
 		{
-			AvailableBuildings.Items.Clear();
 			BuiltBuildings.Items.Clear();
 		}
-
-		InstantiateAllBuildings();
 	}
 
 	private void FollowMouse()
@@ -35,8 +30,7 @@ public class BuildingHolder : MonoBehaviour
 
 	public void SelectBuilding(Building building)
 	{
-		m_activeBuilding = building;
-		m_activeBuilding.gameObject.SetActive(true);
+		m_activeBuilding = Instantiate(building);
 		FollowMouse();
 	}
 
@@ -44,7 +38,7 @@ public class BuildingHolder : MonoBehaviour
 	{
 		for (int i = BuiltBuildings.Items.Count - 1; i >= 0; i--)
 		{
-			BuiltBuildings.Items[i].gameObject.SetActive(false);
+			Destroy(BuiltBuildings.Items[i].gameObject);
 		}
 	}
 
@@ -64,7 +58,7 @@ public class BuildingHolder : MonoBehaviour
 
 				if (Input.GetMouseButtonUp(1))
 				{
-					m_activeBuilding.gameObject.SetActive(false);
+					Destroy(m_activeBuilding.gameObject);
 					m_activeBuilding = null;
 				}
 			}
