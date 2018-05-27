@@ -51,11 +51,11 @@ public class BuildingPlacer : MonoBehaviour
 			{
 				FollowMouse();
 
-				if (Input.GetMouseButtonUp(1))
-				{
-					Destroy(m_activeBuilding.gameObject);
-					m_activeBuilding = null;
-				}
+				//if (Input.GetMouseButtonUp(1))
+				//{
+				//	Destroy(m_activeBuilding.gameObject);
+				//	m_activeBuilding = null;
+				//}
 			}
 
 			return;

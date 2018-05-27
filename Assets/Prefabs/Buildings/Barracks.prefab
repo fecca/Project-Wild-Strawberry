@@ -285,7 +285,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BuiltBuildings: {fileID: 11400000, guid: ba91dec93a6673e469437455743d83bd, type: 2}
   State: 0
-  OnClick: {fileID: 0}
+  OnClick: {fileID: 11400000, guid: fe7f7bfc06fc044438bc6c33a06467ed, type: 2}
   Material: {fileID: 2100000, guid: c7906421221361942be44af534d1efb2, type: 2}
   PlacingMaterial: {fileID: 2100000, guid: c5764fd0e8206b04cbc8e59fa6396922, type: 2}
   Renderers:

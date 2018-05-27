@@ -19,5 +19,17 @@ public class MouseInput : MonoBehaviour
 				}
 			}
 		}
+		if (Input.GetMouseButtonUp(1))
+		{
+			RaycastHit hit;
+			if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100f, 1 << LayerMask.NameToLayer("Building")))
+			{
+				var building = hit.collider.GetComponent<Building>();
+				if (building != null)
+				{
+					building.Cancel();
+				}
+			}
+		}
 	}
 }

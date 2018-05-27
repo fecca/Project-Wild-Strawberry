@@ -56,6 +56,14 @@ public class Building : MonoBehaviour
 		}
 	}
 
+	public void Cancel()
+	{
+		if (State == BuildingState.Placing)
+		{
+			Destroy(gameObject);
+		}
+	}
+
 	private void Place()
 	{
 		BuiltBuildings.Add(this);
