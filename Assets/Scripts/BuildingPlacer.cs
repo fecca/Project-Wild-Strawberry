@@ -50,12 +50,6 @@ public class BuildingPlacer : MonoBehaviour
 			if (m_activeBuilding.GetState() == BuildingState.Placing)
 			{
 				FollowMouse();
-
-				//if (Input.GetMouseButtonUp(1))
-				//{
-				//	Destroy(m_activeBuilding.gameObject);
-				//	m_activeBuilding = null;
-				//}
 			}
 
 			return;
