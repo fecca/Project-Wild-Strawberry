@@ -80,12 +80,28 @@ public class Building : MonoBehaviour
 		State = BuildingState.Active;
 	}
 
-	public void Interact()
+	public void Interact(MouseButtonType mouseButton)
+	{
+		switch (mouseButton)
+		{
+			case MouseButtonType.Left:
+				LeftClick();
+				break;
+			case MouseButtonType.Right:
+				RightClick();
+				break;
+			case MouseButtonType.Middle:
+				MiddleClick();
+				break;
+			default: throw new NotSupportedException("MouseButton not supported: " + mouseButton);
+		}
+	}
+
+	private void LeftClick()
 	{
 		switch (State)
 		{
-			case BuildingState.Inactive:
-				break;
+			case BuildingState.Inactive: break;
 			case BuildingState.Placing:
 				Place();
 				break;
@@ -93,11 +109,19 @@ public class Building : MonoBehaviour
 			case BuildingState.Active:
 				OnClick.Raise(this);
 				break;
-			case BuildingState.Selected:
-				break;
-			default:
-				throw new NotSupportedException("BuildingState not supported: " + State);
+			case BuildingState.Selected: break;
+			default: throw new NotSupportedException("BuildingState not supported: " + State);
 		}
+	}
+
+	private void RightClick()
+	{
+		Cancel();
+	}
+
+	private void MiddleClick()
+	{
+
 	}
 
 	public void Cancel()
