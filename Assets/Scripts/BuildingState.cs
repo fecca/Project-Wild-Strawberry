@@ -2,5 +2,7 @@
 {
 	Inactive,
 	Placing,
-	Built,
+	Constructing,
+	Active,
+	Selected,
 }

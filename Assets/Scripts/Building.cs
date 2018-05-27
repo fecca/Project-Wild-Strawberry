@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class Building : MonoBehaviour
@@ -6,7 +7,7 @@ public class Building : MonoBehaviour
 	[SerializeField]
 	private BuildingData Data;
 	[SerializeField]
-	private BuildingRuntimeSet BuiltBuildings;
+	private BuildingRuntimeSet ActiveBuildings;
 	[SerializeField]
 	private BuildingState State;
 	[SerializeField]
@@ -22,23 +23,61 @@ public class Building : MonoBehaviour
 
 	private void OnEnable()
 	{
+		gameObject.name = Data.Name;
 		foreach (var renderer in Renderers)
 		{
 			renderer.sharedMaterial = PlacingMaterial;
 		}
 		State = BuildingState.Placing;
+		FollowMouse();
 	}
 
 	private void OnDisable()
 	{
-		BuiltBuildings.Remove(this);
+		ActiveBuildings.Remove(this);
 
 		State = BuildingState.Inactive;
 	}
 
 	private void OnDestroy()
 	{
-		BuiltBuildings.Remove(this);
+		ActiveBuildings.Remove(this);
+	}
+
+	private void Update()
+	{
+		if (State == BuildingState.Placing)
+		{
+			FollowMouse();
+		}
+	}
+
+	private void FollowMouse()
+	{
+		RaycastHit hit;
+		if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100f, 1 << LayerMask.NameToLayer("Ground")))
+		{
+			transform.position = hit.point;
+		}
+	}
+
+	private void Place()
+	{
+		ActiveBuildings.Add(this);
+		foreach (var renderer in Renderers)
+		{
+			renderer.sharedMaterial = Material;
+		}
+		StartCoroutine(Construct());
+	}
+
+	private IEnumerator Construct()
+	{
+		State = BuildingState.Constructing;
+
+		yield return new WaitForSeconds(Data.ConstructionTime);
+
+		State = BuildingState.Active;
 	}
 
 	public void Interact()
@@ -50,8 +89,11 @@ public class Building : MonoBehaviour
 			case BuildingState.Placing:
 				Place();
 				break;
-			case BuildingState.Built:
-				OpenBuildingMenu();
+			case BuildingState.Constructing:
+			case BuildingState.Active:
+				OnClick.Raise(this);
+				break;
+			case BuildingState.Selected:
 				break;
 			default:
 				throw new NotSupportedException("BuildingState not supported: " + State);
@@ -64,21 +106,6 @@ public class Building : MonoBehaviour
 		{
 			Destroy(gameObject);
 		}
-	}
-
-	private void Place()
-	{
-		BuiltBuildings.Add(this);
-		foreach (var renderer in Renderers)
-		{
-			renderer.sharedMaterial = Material;
-		}
-		State = BuildingState.Built;
-	}
-
-	private void OpenBuildingMenu()
-	{
-		OnClick.Raise(this);
 	}
 
 	public BuildingState GetState()

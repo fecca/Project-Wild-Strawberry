@@ -15,4 +15,4 @@ MonoBehaviour:
   Name: Tower
   Icon: {fileID: 0}
   Cost: 1
-  ConstructionTime: 1
+  ConstructionTime: 5

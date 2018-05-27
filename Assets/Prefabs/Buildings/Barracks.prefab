@@ -284,7 +284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Data: {fileID: 11400000, guid: 641779ae2ffa22a44b302d39c79fb01e, type: 2}
-  BuiltBuildings: {fileID: 11400000, guid: ba91dec93a6673e469437455743d83bd, type: 2}
+  ActiveBuildings: {fileID: 11400000, guid: ba91dec93a6673e469437455743d83bd, type: 2}
   State: 0
   OnClick: {fileID: 11400000, guid: fe7f7bfc06fc044438bc6c33a06467ed, type: 2}
   Material: {fileID: 2100000, guid: c7906421221361942be44af534d1efb2, type: 2}
