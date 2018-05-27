@@ -6,8 +6,6 @@ public class BuildingButton : MonoBehaviour
 	[SerializeField]
 	private BuildingEvent OnBuildBuilding;
 	[SerializeField]
-	private Text Text;
-	[SerializeField]
 	private Image Image;
 
 	private Building m_building;
@@ -15,7 +13,6 @@ public class BuildingButton : MonoBehaviour
 	public void Setup(Building building, Vector3 position)
 	{
 		m_building = building;
-		//Text.text = building.GetDisplayName();
 		transform.name = building.GetDisplayName();
 		transform.position = position;
 		Image.sprite = building.GetIcon();
