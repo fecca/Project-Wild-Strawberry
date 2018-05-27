@@ -64,10 +64,6 @@ public class Building : MonoBehaviour
 	private void Place()
 	{
 		ActiveBuildings.Add(this);
-		foreach (var renderer in Renderers)
-		{
-			renderer.sharedMaterial = Material;
-		}
 		StartCoroutine(Construct());
 	}
 
@@ -75,7 +71,14 @@ public class Building : MonoBehaviour
 	{
 		State = BuildingState.Constructing;
 
-		yield return new WaitForSeconds(Data.ConstructionTime);
+		var steps = Data.ConstructionTime / Renderers.Length;
+
+		for (var i = 0; i < Renderers.Length; i++)
+		{
+			yield return new WaitForSeconds(steps);
+
+			Renderers[i].sharedMaterial = Material;
+		}
 
 		State = BuildingState.Active;
 	}
@@ -150,5 +153,10 @@ public class Building : MonoBehaviour
 	public float GetConstructionTime()
 	{
 		return Data.ConstructionTime;
+	}
+
+	public Sprite GetIcon()
+	{
+		return Data.Icon;
 	}
 }

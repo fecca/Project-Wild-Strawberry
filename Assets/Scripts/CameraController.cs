@@ -36,7 +36,7 @@ public class CameraController : MonoBehaviour
 	{
 		RaycastHit hit;
 		var ray = new Ray(Camera.transform.position, Camera.transform.forward);
-		if (Physics.Raycast(ray, out hit, 1 << LayerMask.NameToLayer("Ground")))
+		if (Physics.Raycast(ray, out hit, 100f, 1 << LayerMask.NameToLayer("Ground")))
 		{
 			return (hit.point - Camera.transform.position).magnitude;
 		}

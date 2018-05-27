@@ -13,6 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 3
   Name: Barracks
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 6940490e76e7c05499d5dd2c3392fcf5, type: 3}
   Cost: 1
   ConstructionTime: 5

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 2
   Name: Tower
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 3715f9eabcc772c4a9d4990710425eaf, type: 3}
   Cost: 1
   ConstructionTime: 5

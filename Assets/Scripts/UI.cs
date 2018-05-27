@@ -23,7 +23,7 @@ public class UI : MonoBehaviour
 		for (var i = AllBuildings.Value.Count - 1; i >= 0; i--)
 		{
 			var button = Instantiate(BuildingButtonTemplate, transform) as BuildingButton;
-			button.Setup(AllBuildings.Value[i], BuildingButtonTemplate.transform.position + Vector3.up * (40 * i));
+			button.Setup(AllBuildings.Value[i], BuildingButtonTemplate.transform.position + Vector3.up * (74 * i));
 		}
 	}
 }

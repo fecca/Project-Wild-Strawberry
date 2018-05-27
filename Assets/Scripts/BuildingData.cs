@@ -6,7 +6,7 @@ public class BuildingData : ScriptableObject
 {
 	public BuildingType Type;
 	public string Name;
-	public Image Icon;
+	public Sprite Icon;
 	public float Cost;
 	public float ConstructionTime;
 }
