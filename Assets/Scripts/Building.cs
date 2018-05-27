@@ -4,6 +4,8 @@ using UnityEngine;
 public class Building : MonoBehaviour
 {
 	[SerializeField]
+	private BuildingData Data;
+	[SerializeField]
 	private BuildingRuntimeSet BuiltBuildings;
 	[SerializeField]
 	private BuildingState State;
@@ -82,5 +84,20 @@ public class Building : MonoBehaviour
 	public BuildingState GetState()
 	{
 		return State;
+	}
+
+	public string GetDisplayName()
+	{
+		return Data.Name;
+	}
+
+	public float GetCost()
+	{
+		return Data.Cost;
+	}
+
+	public float GetConstructionTime()
+	{
+		return Data.ConstructionTime;
 	}
 }

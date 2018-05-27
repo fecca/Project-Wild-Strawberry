@@ -10,20 +10,13 @@ public class BuildingButton : MonoBehaviour
 
 	private Building m_building;
 
-	public void SetText(string text)
-	{
-		Text.text = text;
-		transform.name = text;
-	}
-
-	public void SetPosition(Vector3 position)
-	{
-		transform.position += position;
-	}
-
-	public void SetBuildingReference(Building building)
+	public void Setup(Building building, Vector3 position)
 	{
 		m_building = building;
+		Text.text = building.GetDisplayName();
+		transform.name = building.GetDisplayName();
+		transform.position = position;
+		gameObject.SetActive(true);
 	}
 
 	public void Click()
