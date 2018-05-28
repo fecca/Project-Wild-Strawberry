@@ -8,11 +8,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bd215090e428e3468adaca271f0b5c5, type: 3}
-  m_Name: Tower
+  m_Script: {fileID: 11500000, guid: df312b913b823d343824fa1d21ffeb65, type: 3}
+  m_Name: OnConstructBuilding
   m_EditorClassIdentifier: 
-  Type: 2
-  Name: Tower
-  Icon: {fileID: 21300000, guid: 3715f9eabcc772c4a9d4990710425eaf, type: 3}
-  Cost: 1
-  ConstructionTime: 5

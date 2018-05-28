@@ -2,7 +2,6 @@
 using System.Collections;
 using UnityEngine;
 
-public class Player : MonoBehaviour { }
 public class Building : MonoBehaviour
 {
 	[SerializeField]
@@ -12,7 +11,9 @@ public class Building : MonoBehaviour
 	[SerializeField]
 	private BuildingState State;
 	[SerializeField]
-	private BuildingEvent OnClick;
+	private BuildingEvent OnConstruct;
+	[SerializeField]
+	private BuildingEvent OnSelect;
 
 	[Header("Rendering")]
 	[SerializeField]
@@ -71,37 +72,19 @@ public class Building : MonoBehaviour
 	private IEnumerator Construct()
 	{
 		State = BuildingState.Constructing;
+		OnConstruct.Raise(this);
 
-		var steps = Data.ConstructionTime / Renderers.Length;
-
+		var steps = (float)Data.ConstructionTime / Renderers.Length;
 		for (var i = 0; i < Renderers.Length; i++)
 		{
 			yield return new WaitForSeconds(steps);
-
 			Renderers[i].sharedMaterial = Material;
 		}
 
 		State = BuildingState.Active;
 	}
 
-	public void Interact(MouseButtonType mouseButton)
-	{
-		switch (mouseButton)
-		{
-			case MouseButtonType.Left:
-				LeftClick();
-				break;
-			case MouseButtonType.Right:
-				RightClick();
-				break;
-			case MouseButtonType.Middle:
-				MiddleClick();
-				break;
-			default: throw new NotSupportedException("MouseButton not supported: " + mouseButton);
-		}
-	}
-
-	private void LeftClick()
+	public void LeftClick()
 	{
 		switch (State)
 		{
@@ -111,24 +94,14 @@ public class Building : MonoBehaviour
 				break;
 			case BuildingState.Constructing:
 			case BuildingState.Active:
-				OnClick.Raise(this);
+				OnSelect.Raise(this);
 				break;
 			case BuildingState.Selected: break;
 			default: throw new NotSupportedException("BuildingState not supported: " + State);
 		}
 	}
 
-	private void RightClick()
-	{
-		Cancel();
-	}
-
-	private void MiddleClick()
-	{
-
-	}
-
-	public void Cancel()
+	public void RightClick()
 	{
 		if (State == BuildingState.Placing)
 		{
@@ -146,12 +119,12 @@ public class Building : MonoBehaviour
 		return Data.Name;
 	}
 
-	public float GetCost()
+	public int GetCost()
 	{
 		return Data.Cost;
 	}
 
-	public float GetConstructionTime()
+	public int GetConstructionTime()
 	{
 		return Data.ConstructionTime;
 	}

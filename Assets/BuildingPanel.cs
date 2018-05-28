@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class InformationPanel : MonoBehaviour
+public class BuildingPanel : MonoBehaviour
 {
 	[SerializeField]
 	private Text TypeText;

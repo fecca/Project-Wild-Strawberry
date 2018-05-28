@@ -7,6 +7,12 @@ public class BuildingButton : MonoBehaviour
 	private BuildingEvent OnBuildBuilding;
 	[SerializeField]
 	private Image Image;
+	[SerializeField]
+	private Text Name;
+	[SerializeField]
+	private Text CostText;
+	[SerializeField]
+	private Text TimeText;
 
 	private Building m_building;
 
@@ -16,6 +22,9 @@ public class BuildingButton : MonoBehaviour
 		transform.name = building.GetDisplayName();
 		transform.position = position;
 		Image.sprite = building.GetIcon();
+		Name.text = string.Format("{0}", building.GetDisplayName());
+		CostText.text = string.Format("{0}g", building.GetCost());
+		TimeText.text = string.Format("{0}s", building.GetConstructionTime());
 		gameObject.SetActive(true);
 	}
 
