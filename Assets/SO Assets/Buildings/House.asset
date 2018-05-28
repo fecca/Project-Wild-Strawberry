@@ -13,6 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 0
   Name: House
-  Icon: {fileID: 21300000, guid: dda8b5adf76758740930cad788a1d4f7, type: 3}
+  Icon: {fileID: 21300000, guid: 0fa8bd21cbf21c3448614e8b937dffeb, type: 3}
   Cost: 3
   ConstructionTime: 4
