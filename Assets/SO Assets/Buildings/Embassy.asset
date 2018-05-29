@@ -16,4 +16,4 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: 6e9fc880a73cbcf46ace3201f802e774, type: 3}
   Cost: 12
   ConstructionTime: 4
-  TickValue: 2
+  TickValue: 0.1

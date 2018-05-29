@@ -4,17 +4,10 @@ using UnityEngine.UI;
 public class PlayerPanel : MonoBehaviour
 {
 	[SerializeField]
-	private PlayerResources PlayerResources;
-	[SerializeField]
 	private Text GoldText;
 
-	private void Start()
+	public void UpdateResources(PlayerResources playerResources)
 	{
-		UpdateResources();
-	}
-
-	public void UpdateResources()
-	{
-		GoldText.text = string.Format("Gold: {0}", PlayerResources.Gold);
+		GoldText.text = string.Format("Gold: {0}", Mathf.FloorToInt(playerResources.Gold));
 	}
 }

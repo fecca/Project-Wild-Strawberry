@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474a52059ba20174a91c80693759c6c8, type: 3}
   m_Name: PlayerResources
   m_EditorClassIdentifier: 
-  OnPlayerResourcesChanged: {fileID: 11400000, guid: 54c77418ef9a02747be2e319124f7174,
+  OnPlayerResourcesChanged: {fileID: 11400000, guid: e27867a05e7d84c40a33bb7e588220ac,
     type: 2}

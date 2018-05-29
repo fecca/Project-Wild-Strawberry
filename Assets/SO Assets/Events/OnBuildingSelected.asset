@@ -9,5 +9,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df312b913b823d343824fa1d21ffeb65, type: 3}
-  m_Name: OnBuildingConstructionComplete
+  m_Name: OnBuildingSelected
   m_EditorClassIdentifier: 

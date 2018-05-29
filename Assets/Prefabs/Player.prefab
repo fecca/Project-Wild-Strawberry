@@ -69,7 +69,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114459628529131210}
-        m_MethodName: ConstructBuilding
+        m_MethodName: SubtractBuildingCost
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

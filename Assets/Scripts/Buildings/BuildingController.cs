@@ -38,7 +38,7 @@ public class BuildingController : MonoBehaviour
 		{
 			yield return new WaitForSeconds(TickInterval.Value);
 
-			var totalValue = 0;
+			var totalValue = 0f;
 			foreach (var building in ActiveBuildings.Items)
 			{
 				totalValue += building.GetTickValue();

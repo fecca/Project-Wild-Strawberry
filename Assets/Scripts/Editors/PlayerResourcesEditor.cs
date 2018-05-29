@@ -9,6 +9,6 @@ public class PlayerResourcesEditor : Editor
 
 		var playerResources = (PlayerResources)target;
 
-		playerResources.Gold = EditorGUILayout.IntField("Gold", playerResources.Gold);
+		playerResources.Gold = EditorGUILayout.FloatField("Gold", playerResources.Gold);
 	}
 }

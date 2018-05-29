@@ -4,7 +4,9 @@ using UnityEngine.UI;
 public class BuildingButton : MonoBehaviour
 {
 	[SerializeField]
-	private BuildingEvent OnBuildBuilding;
+	private BuildingUnityEvent OnClick;
+	[SerializeField]
+	private Button Button;
 	[SerializeField]
 	private Image Image;
 	[SerializeField]
@@ -30,9 +32,15 @@ public class BuildingButton : MonoBehaviour
 
 	public void Click()
 	{
-		if (m_building != null)
-		{
-			OnBuildBuilding.Raise(m_building);
-		}
+		OnClick.Invoke(m_building);
+	}
+
+	public void UpdateVisibility(PlayerResources playerResources)
+	{
+		var enabled = m_building.GetCost() <= playerResources.Gold;
+		Button.enabled = enabled;
+		var imageColor = Image.color;
+		imageColor.a = enabled ? 1.0f : 0.25f;
+		Image.color = imageColor;
 	}
 }

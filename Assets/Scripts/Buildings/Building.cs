@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class Building : MonoBehaviour
 {
-	[SerializeField]
-	private BuildingData Data;
-	[SerializeField]
-	private BuildingRuntimeSet ActiveBuildings;
-	[SerializeField]
-	private BuildingState State;
+	[Header("Events")]
 	[SerializeField]
 	private BuildingUnityEvent OnConstruct;
 	[SerializeField]
 	private BuildingUnityEvent OnConstructionComplete;
 	[SerializeField]
 	private BuildingUnityEvent OnSelect;
+	[SerializeField]
+	private BuildingUnityEvent OnDestroyed;
+
+	[Header("Data")]
+	[SerializeField]
+	private BuildingData Data;
+	[SerializeField]
+	private BuildingState State;
 
 	[Header("Rendering")]
 	[SerializeField]
@@ -36,16 +39,9 @@ public class Building : MonoBehaviour
 		FollowMouse();
 	}
 
-	private void OnDisable()
-	{
-		ActiveBuildings.Remove(this);
-
-		State = BuildingState.Inactive;
-	}
-
 	private void OnDestroy()
 	{
-		ActiveBuildings.Remove(this);
+		OnDestroyed.Invoke(this);
 	}
 
 	private void Update()
@@ -136,7 +132,7 @@ public class Building : MonoBehaviour
 		return Data.Icon;
 	}
 
-	public int GetTickValue()
+	public float GetTickValue()
 	{
 		return Data.TickValue;
 	}

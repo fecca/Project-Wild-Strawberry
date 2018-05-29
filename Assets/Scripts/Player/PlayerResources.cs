@@ -3,16 +3,16 @@
 [CreateAssetMenu]
 public class PlayerResources : ScriptableObject
 {
-	public GenericEvent OnPlayerResourcesChanged;
+	public PlayerResourcesEvent OnPlayerResourcesChanged;
 
-	private int m_gold;
-	public int Gold
+	private float m_gold;
+	public float Gold
 	{
 		get { return m_gold; }
 		set
 		{
 			m_gold = value;
-			OnPlayerResourcesChanged.Raise();
+			OnPlayerResourcesChanged.Raise(this);
 		}
 	}
 }
