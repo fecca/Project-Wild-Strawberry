@@ -11,9 +11,11 @@ public class Building : MonoBehaviour
 	[SerializeField]
 	private BuildingState State;
 	[SerializeField]
-	private BuildingEvent OnConstruct;
+	private BuildingUnityEvent OnConstruct;
 	[SerializeField]
-	private BuildingEvent OnSelect;
+	private BuildingUnityEvent OnConstructionComplete;
+	[SerializeField]
+	private BuildingUnityEvent OnSelect;
 
 	[Header("Rendering")]
 	[SerializeField]
@@ -65,14 +67,13 @@ public class Building : MonoBehaviour
 
 	private void Place()
 	{
-		ActiveBuildings.Add(this);
 		StartCoroutine(Construct());
 	}
 
 	private IEnumerator Construct()
 	{
 		State = BuildingState.Constructing;
-		OnConstruct.Raise(this);
+		OnConstruct.Invoke(this);
 
 		var steps = (float)Data.ConstructionTime / Renderers.Length;
 		for (var i = 0; i < Renderers.Length; i++)
@@ -82,6 +83,7 @@ public class Building : MonoBehaviour
 		}
 
 		State = BuildingState.Active;
+		OnConstructionComplete.Invoke(this);
 	}
 
 	public void LeftClick()
@@ -94,7 +96,7 @@ public class Building : MonoBehaviour
 				break;
 			case BuildingState.Constructing:
 			case BuildingState.Active:
-				OnSelect.Raise(this);
+				OnSelect.Invoke(this);
 				break;
 			case BuildingState.Selected: break;
 			default: throw new NotSupportedException("BuildingState not supported: " + State);

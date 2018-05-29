@@ -8,12 +8,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bd215090e428e3468adaca271f0b5c5, type: 3}
-  m_Name: Barracks
+  m_Script: {fileID: 11500000, guid: df312b913b823d343824fa1d21ffeb65, type: 3}
+  m_Name: OnBuildingConstructionComplete
   m_EditorClassIdentifier: 
-  Type: 3
-  Name: Barracks
-  Icon: {fileID: 21300000, guid: 5612023d688114649a1caa78439a4849, type: 3}
-  Cost: 9
-  ConstructionTime: 3
-  TickValue: 3

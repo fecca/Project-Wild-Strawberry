@@ -6,6 +6,8 @@ public class BuildingController : MonoBehaviour
 	[SerializeField]
 	private BuildingsVariable AllBuildings;
 	[SerializeField]
+	private BuildingRuntimeSet BuildingsUnderConstruction;
+	[SerializeField]
 	private BuildingRuntimeSet ActiveBuildings;
 	[SerializeField]
 	private FloatReference TickInterval;
@@ -18,6 +20,7 @@ public class BuildingController : MonoBehaviour
 	{
 		if (ClearBuildingsOnAwake)
 		{
+			BuildingsUnderConstruction.Items.Clear();
 			ActiveBuildings.Items.Clear();
 		}
 	}
@@ -30,6 +33,17 @@ public class BuildingController : MonoBehaviour
 	public void BuildBuilding(Building building)
 	{
 		Instantiate(building);
+	}
+
+	public void ConstructBuilding(Building building)
+	{
+		BuildingsUnderConstruction.Add(building);
+	}
+
+	public void CompleteConstruction(Building building)
+	{
+		BuildingsUnderConstruction.Remove(building);
+		ActiveBuildings.Add(building);
 	}
 
 	public void ResetBuildings()

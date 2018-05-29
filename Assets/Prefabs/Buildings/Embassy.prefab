@@ -1291,8 +1291,54 @@ MonoBehaviour:
   Data: {fileID: 11400000, guid: 66231bf5bcfecac4f921ccf9b9382398, type: 2}
   ActiveBuildings: {fileID: 11400000, guid: ba91dec93a6673e469437455743d83bd, type: 2}
   State: 0
-  OnConstruct: {fileID: 11400000, guid: c2d5ac4475941bf4db92abcf71488be8, type: 2}
-  OnSelect: {fileID: 11400000, guid: fe7f7bfc06fc044438bc6c33a06467ed, type: 2}
+  OnConstruct:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: c2d5ac4475941bf4db92abcf71488be8, type: 2}
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: BuildingUnityEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnConstructionComplete:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 03992a8e6c880704d9716fba632c2cf0, type: 2}
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: BuildingUnityEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnSelect:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: fe7f7bfc06fc044438bc6c33a06467ed, type: 2}
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: BuildingUnityEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   Material: {fileID: 2100000, guid: fa1958bb9fea1894bb90ea3474896f31, type: 2}
   PlacingMaterial: {fileID: 2100000, guid: a4116306bac00d743bd187c7b7bed006, type: 2}
   Renderers:
