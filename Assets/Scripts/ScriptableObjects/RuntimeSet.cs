@@ -20,4 +20,9 @@ public abstract class RuntimeSet<T> : ScriptableObject
 			Items.Remove(t);
 		}
 	}
+
+	public void Clear()
+	{
+		Items.Clear();
+	}
 }

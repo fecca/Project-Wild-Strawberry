@@ -1,49 +1,27 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BuildingController : MonoBehaviour
 {
 	[SerializeField]
-	private BuildingsVariable AllBuildings;
-	[SerializeField]
-	private BuildingRuntimeSet BuildingsUnderConstruction;
+	private UnityEvent OnStart;
 	[SerializeField]
 	private BuildingRuntimeSet ActiveBuildings;
 	[SerializeField]
-	private FloatReference TickInterval;
-	[SerializeField]
 	private PlayerResources PlayerResources;
 	[SerializeField]
-	private bool ClearBuildingsOnAwake;
-
-	private void Awake()
-	{
-		if (ClearBuildingsOnAwake)
-		{
-			BuildingsUnderConstruction.Items.Clear();
-			ActiveBuildings.Items.Clear();
-		}
-	}
+	private FloatReference TickInterval;
 
 	private void Start()
 	{
+		OnStart.Invoke();
 		StartCoroutine(TickBuildings());
 	}
 
 	public void BuildBuilding(Building building)
 	{
 		Instantiate(building);
-	}
-
-	public void ConstructBuilding(Building building)
-	{
-		BuildingsUnderConstruction.Add(building);
-	}
-
-	public void CompleteConstruction(Building building)
-	{
-		BuildingsUnderConstruction.Remove(building);
-		ActiveBuildings.Add(building);
 	}
 
 	public void ResetBuildings()
