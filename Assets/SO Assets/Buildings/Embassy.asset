@@ -14,5 +14,6 @@ MonoBehaviour:
   Type: 1
   Name: Embassy
   Icon: {fileID: 21300000, guid: 6e9fc880a73cbcf46ace3201f802e774, type: 3}
-  Cost: 5
-  ConstructionTime: 24
+  Cost: 10
+  ConstructionTime: 16
+  TickValue: 2

@@ -14,5 +14,6 @@ MonoBehaviour:
   Type: 3
   Name: Barracks
   Icon: {fileID: 21300000, guid: 5612023d688114649a1caa78439a4849, type: 3}
-  Cost: 2
-  ConstructionTime: 8
+  Cost: 18
+  ConstructionTime: 24
+  TickValue: 3

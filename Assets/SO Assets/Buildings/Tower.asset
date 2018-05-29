@@ -14,5 +14,6 @@ MonoBehaviour:
   Type: 2
   Name: Tower
   Icon: {fileID: 21300000, guid: 18a869322b0223a42b804e221c631738, type: 3}
-  Cost: 7
-  ConstructionTime: 16
+  Cost: 5
+  ConstructionTime: 15
+  TickValue: 1
