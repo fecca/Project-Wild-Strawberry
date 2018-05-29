@@ -4,7 +4,9 @@ using UnityEngine.UI;
 public class BuildingButton : MonoBehaviour
 {
 	[SerializeField]
-	private BuildingUnityEvent OnClick;
+	private BuildingEvent OnPlaceBuilding;
+	[SerializeField]
+	private BuildingVariable ActiveBuilding;
 	[SerializeField]
 	private Button Button;
 	[SerializeField]
@@ -32,7 +34,10 @@ public class BuildingButton : MonoBehaviour
 
 	public void Click()
 	{
-		OnClick.Invoke(m_building);
+		if (ActiveBuilding.Value == null)
+		{
+			OnPlaceBuilding.Raise(m_building);
+		}
 	}
 
 	public void UpdateVisibility(PlayerResources playerResources)

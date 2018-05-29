@@ -15,4 +15,6 @@ public class PlayerResources : ScriptableObject
 			OnPlayerResourcesChanged.Raise(this);
 		}
 	}
+
+	public FloatReference StartingGold;
 }

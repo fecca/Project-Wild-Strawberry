@@ -9,9 +9,13 @@ public class BuildingController : MonoBehaviour
 	[SerializeField]
 	private BuildingRuntimeSet ActiveBuildings;
 	[SerializeField]
+	private BuildingRuntimeSet BuildingsUnderConstruction;
+	[SerializeField]
 	private PlayerResources PlayerResources;
 	[SerializeField]
 	private FloatReference TickInterval;
+	[SerializeField]
+	private BuildingVariable ActiveBuilding;
 
 	private void Start()
 	{
@@ -21,12 +25,22 @@ public class BuildingController : MonoBehaviour
 
 	public void BuildBuilding(Building building)
 	{
-		Instantiate(building);
+		if (ActiveBuilding.Value == null)
+		{
+			ActiveBuilding.Value = Instantiate(building);
+		}
+	}
+
+	public void ConstructBuilding(Building building)
+	{
+		BuildingsUnderConstruction.Add(building);
+		ActiveBuilding.Value = null;
 	}
 
 	public void CancelBuilding(Building building)
 	{
 		ActiveBuildings.Remove(building);
+		ActiveBuilding.Value = null;
 		Destroy(building.gameObject);
 	}
 

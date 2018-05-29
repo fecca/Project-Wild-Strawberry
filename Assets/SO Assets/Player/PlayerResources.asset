@@ -13,3 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnPlayerResourcesChanged: {fileID: 11400000, guid: e27867a05e7d84c40a33bb7e588220ac,
     type: 2}
+  StartingGold:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 858a82e688dd6614796d4ee8e0bb92c2, type: 2}

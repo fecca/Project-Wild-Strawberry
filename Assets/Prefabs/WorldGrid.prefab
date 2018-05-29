@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1481848126926102}
+  m_IsPrefabParent: 1
+--- !u!1 &1481848126926102
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4006290548719632}
+  - component: {fileID: 114053677873940576}
+  m_Layer: 0
+  m_Name: WorldGrid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4006290548719632
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1481848126926102}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114053677873940576
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1481848126926102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd2a128f553ffc24ab7df66f700ae39c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActiveBuilding: {fileID: 11400000, guid: 31c8402a66981174892287806376c5a0, type: 2}
+  WorldSizeX:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: b90a436f110337b488668953b1376d91, type: 2}
+  WorldSizeY:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: ea7bb6ac0b5160340a97b4f7a76360f2, type: 2}
+  GridSizeX:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 63fe9493738992147a756b69ceeaf1cf, type: 2}
+  GridSizeY:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 7a0ed574109fbf042a1dd5b63a0f0eab, type: 2}

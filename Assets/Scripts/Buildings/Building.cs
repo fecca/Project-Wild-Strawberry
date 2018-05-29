@@ -36,24 +36,6 @@ public class Building : MonoBehaviour
 			renderer.sharedMaterial = PlacingMaterial;
 		}
 		State = BuildingState.Placing;
-		FollowMouse();
-	}
-
-	private void Update()
-	{
-		if (State == BuildingState.Placing)
-		{
-			FollowMouse();
-		}
-	}
-
-	private void FollowMouse()
-	{
-		RaycastHit hit;
-		if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100f, 1 << LayerMask.NameToLayer("Ground")))
-		{
-			transform.position = hit.point;
-		}
 	}
 
 	private void Place()
