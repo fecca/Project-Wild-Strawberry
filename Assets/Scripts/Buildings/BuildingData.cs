@@ -8,4 +8,5 @@ public class BuildingData : ScriptableObject
 	public Sprite Icon;
 	public int Cost;
 	public int ConstructionTime;
+	public int TickValue;
 }

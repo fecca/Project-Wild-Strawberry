@@ -133,4 +133,9 @@ public class Building : MonoBehaviour
 	{
 		return Data.Icon;
 	}
+
+	public int GetTickValue()
+	{
+		return Data.TickValue;
+	}
 }
