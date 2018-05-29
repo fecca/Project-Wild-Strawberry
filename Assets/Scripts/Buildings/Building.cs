@@ -12,7 +12,7 @@ public class Building : MonoBehaviour
 	[SerializeField]
 	private BuildingUnityEvent OnSelect;
 	[SerializeField]
-	private BuildingUnityEvent OnDestroyed;
+	private BuildingUnityEvent OnCancelled;
 
 	[Header("Data")]
 	[SerializeField]
@@ -37,11 +37,6 @@ public class Building : MonoBehaviour
 		}
 		State = BuildingState.Placing;
 		FollowMouse();
-	}
-
-	private void OnDestroy()
-	{
-		OnDestroyed.Invoke(this);
 	}
 
 	private void Update()
@@ -103,7 +98,7 @@ public class Building : MonoBehaviour
 	{
 		if (State == BuildingState.Placing)
 		{
-			Destroy(gameObject);
+			OnCancelled.Invoke(this);
 		}
 	}
 

@@ -14,4 +14,9 @@ public class Player : MonoBehaviour
 	{
 		PlayerResources.Gold -= building.GetCost();
 	}
+
+	public void AddBuildingCost(Building building)
+	{
+		PlayerResources.Gold += building.GetCost();
+	}
 }

@@ -1353,11 +1353,11 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: BuildingUnityEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  OnDestroyed:
+  OnCancelled:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: ba91dec93a6673e469437455743d83bd, type: 2}
-        m_MethodName: Remove
+      - m_Target: {fileID: 11400000, guid: 9eb62dd3637795a4f9fd00c82e26d5e4, type: 2}
+        m_MethodName: Raise
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -24,6 +24,12 @@ public class BuildingController : MonoBehaviour
 		Instantiate(building);
 	}
 
+	public void CancelBuilding(Building building)
+	{
+		ActiveBuildings.Remove(building);
+		Destroy(building.gameObject);
+	}
+
 	public void ResetBuildings()
 	{
 		for (int i = ActiveBuildings.Items.Count - 1; i >= 0; i--)

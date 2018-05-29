@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4548326104927152}
   - component: {fileID: 114459628529131210}
   - component: {fileID: 114817112176763124}
+  - component: {fileID: 114377602933146030}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -41,6 +42,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114377602933146030
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1242847504430514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89cdbb56b2b55eb4fabdaf3c0e31a98f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 9eb62dd3637795a4f9fd00c82e26d5e4, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114459628529131210}
+        m_MethodName: AddBuildingCost
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: BuildingUnityEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &114459628529131210
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -64,7 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89cdbb56b2b55eb4fabdaf3c0e31a98f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: c2d5ac4475941bf4db92abcf71488be8, type: 2}
+  Event: {fileID: 11400000, guid: 6ca5234a3e69b2d4182a988510d62986, type: 2}
   Response:
     m_PersistentCalls:
       m_Calls:
