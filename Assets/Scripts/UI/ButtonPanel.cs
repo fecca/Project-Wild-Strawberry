@@ -7,6 +7,8 @@ public class ButtonPanel : MonoBehaviour
 	private BuildingsVariable AllBuildings;
 	[SerializeField]
 	private BuildingButton BuildingButtonPrefab;
+	[SerializeField]
+	private BuildingButtonValidator BuildingButtonValidator;
 
 	private List<BuildingButton> m_buildingButtons = new List<BuildingButton>();
 
@@ -23,7 +25,7 @@ public class ButtonPanel : MonoBehaviour
 		for (var i = AllBuildings.Value.Count - 1; i >= 0; i--)
 		{
 			var button = Instantiate(BuildingButtonPrefab, transform) as BuildingButton;
-			button.Setup(AllBuildings.Value[i], BuildingButtonPrefab.transform.position + Vector3.up * (74 * i));
+			button.Setup(AllBuildings.Value[i], BuildingButtonValidator, BuildingButtonPrefab.transform.position + Vector3.up * (74 * i));
 			m_buildingButtons.Add(button);
 		}
 	}

@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114115158060285126}
   - component: {fileID: 114563529180535232}
   - component: {fileID: 114557615946794268}
+  - component: {fileID: 114700159709182400}
   m_Layer: 5
   m_Name: ButtonPanel
   m_TagString: Untagged
@@ -99,6 +100,19 @@ MonoBehaviour:
   AllBuildings: {fileID: 11400000, guid: d9d163cf8c6751b40a59c1b476eb82c3, type: 2}
   BuildingButtonPrefab: {fileID: 114968443250436818, guid: 20fb218673a30bb4a9525e9ca6314a3f,
     type: 2}
+  BuildingButtonValidator: {fileID: 114700159709182400}
+--- !u!114 &114700159709182400
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1989498986781680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27666bbda24e4b64482eb7976146f270, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActiveBuilding: {fileID: 11400000, guid: 31c8402a66981174892287806376c5a0, type: 2}
 --- !u!222 &222707485823269602
 CanvasRenderer:
   m_ObjectHideFlags: 1

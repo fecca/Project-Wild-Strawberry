@@ -6,8 +6,6 @@ public class BuildingButton : MonoBehaviour
 	[SerializeField]
 	private BuildingEvent OnPlaceBuilding;
 	[SerializeField]
-	private BuildingVariable ActiveBuilding;
-	[SerializeField]
 	private Button Button;
 	[SerializeField]
 	private Image Image;
@@ -19,10 +17,12 @@ public class BuildingButton : MonoBehaviour
 	private Text TimeText;
 
 	private Building m_building;
+	private BuildingButtonValidator m_validator;
 
-	public void Setup(Building building, Vector3 position)
+	public void Setup(Building building, BuildingButtonValidator validator, Vector3 position)
 	{
 		m_building = building;
+		m_validator = validator;
 		transform.name = building.GetDisplayName();
 		transform.position = position;
 		Image.sprite = building.GetIcon();
@@ -34,7 +34,7 @@ public class BuildingButton : MonoBehaviour
 
 	public void Click()
 	{
-		if (ActiveBuilding.Value == null)
+		if (m_validator.Valid())
 		{
 			OnPlaceBuilding.Raise(m_building);
 		}
