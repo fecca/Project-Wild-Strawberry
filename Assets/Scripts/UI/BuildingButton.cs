@@ -34,7 +34,7 @@ public class BuildingButton : MonoBehaviour
 
 	public void Click()
 	{
-		if (m_validator.Valid())
+		if (m_validator.Validate())
 		{
 			OnPlaceBuilding.Raise(m_building);
 		}

@@ -29,9 +29,4 @@ public class WorldGrid : MonoBehaviour
 			ActiveBuilding.Value.transform.position = hit.point;
 		}
 	}
-
-	//public void MoveBuilding(Building building)
-	//{
-	//	FollowMouse();
-	//}
 }

@@ -25,10 +25,7 @@ public class BuildingController : MonoBehaviour
 
 	public void BuildBuilding(Building building)
 	{
-		if (ActiveBuilding.Value == null)
-		{
-			ActiveBuilding.Value = Instantiate(building);
-		}
+		ActiveBuilding.Value = Instantiate(building);
 	}
 
 	public void ConstructBuilding(Building building)
@@ -48,7 +45,7 @@ public class BuildingController : MonoBehaviour
 	{
 		for (int i = ActiveBuildings.Items.Count - 1; i >= 0; i--)
 		{
-			Destroy(ActiveBuildings.Items[i].gameObject);
+			CancelBuilding(ActiveBuildings.Items[i]);
 		}
 	}
 

@@ -1,13 +1,11 @@
 ﻿using UnityEngine;
 
-public class BuildingButtonValidator : Validator
+public class BuildingButtonValidator : ButtonValidator
 {
-	//[SerializeField]
-	//private PlayerResources PlayerResources;
 	[SerializeField]
 	private BuildingVariable ActiveBuilding;
 
-	public override bool Valid()
+	public override bool Validate()
 	{
 		return ActiveBuilding.Value == null;
 	}

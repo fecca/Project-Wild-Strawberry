@@ -4,8 +4,12 @@
 public class PlayerResources : ScriptableObject
 {
 	public PlayerResourcesEvent OnPlayerResourcesChanged;
+	public FloatReference StartingGold;
 
+	[SerializeField]
+	[HideInInspector]
 	private float m_gold;
+
 	public float Gold
 	{
 		get { return m_gold; }
@@ -15,6 +19,4 @@ public class PlayerResources : ScriptableObject
 			OnPlayerResourcesChanged.Raise(this);
 		}
 	}
-
-	public FloatReference StartingGold;
 }
