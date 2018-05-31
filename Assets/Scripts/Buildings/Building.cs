@@ -6,8 +6,6 @@ public class Building : MonoBehaviour
 {
 	[Header("Events")]
 	[SerializeField]
-	private BuildingUnityEvent OnConstruct;
-	[SerializeField]
 	private BuildingUnityEvent OnConstructionComplete;
 	[SerializeField]
 	private BuildingUnityEvent OnSelect;
@@ -38,15 +36,9 @@ public class Building : MonoBehaviour
 		State = BuildingState.Placing;
 	}
 
-	private void Place()
-	{
-		StartCoroutine(Construct());
-	}
-
 	private IEnumerator Construct()
 	{
 		State = BuildingState.Constructing;
-		OnConstruct.Invoke(this);
 
 		var steps = (float)Data.ConstructionTime / Renderers.Length;
 		for (var i = 0; i < Renderers.Length; i++)
@@ -57,6 +49,12 @@ public class Building : MonoBehaviour
 
 		State = BuildingState.Active;
 		OnConstructionComplete.Invoke(this);
+	}
+
+	public void Place()
+	{
+		gameObject.layer = LayerMask.NameToLayer("Building");
+		StartCoroutine(Construct());
 	}
 
 	public void LeftClick()

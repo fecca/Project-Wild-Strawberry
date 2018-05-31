@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4964049237601858}
   - component: {fileID: 33999725486312750}
   - component: {fileID: 23370483332971704}
-  m_Layer: 10
+  m_Layer: 2
   m_Name: Embassy (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4327017763049332}
   - component: {fileID: 33768823179052896}
   - component: {fileID: 23641559479095262}
-  m_Layer: 10
+  m_Layer: 2
   m_Name: Embassy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4716364091268676}
   - component: {fileID: 33312153626219612}
   - component: {fileID: 23202469517961348}
-  m_Layer: 10
+  m_Layer: 2
   m_Name: Embassy (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 4960487512626872}
   - component: {fileID: 33585807814743812}
   - component: {fileID: 23088553173059856}
-  m_Layer: 10
+  m_Layer: 2
   m_Name: Embassy (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 4613286964003722}
   - component: {fileID: 33162784124556438}
   - component: {fileID: 23309414921318270}
-  m_Layer: 10
+  m_Layer: 2
   m_Name: Embassy (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 4901113056745040}
   - component: {fileID: 33075254637710078}
   - component: {fileID: 23616886933694614}
-  m_Layer: 10
+  m_Layer: 2
   m_Name: Embassy (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 4560565283301350}
   - component: {fileID: 33558139590997270}
   - component: {fileID: 23637537414922862}
-  m_Layer: 10
+  m_Layer: 2
   m_Name: Embassy (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 4392648036106284}
   - component: {fileID: 33372936872395516}
   - component: {fileID: 23790909656987902}
-  m_Layer: 10
+  m_Layer: 2
   m_Name: Embassy (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 4808927803227674}
   - component: {fileID: 33216732113745094}
   - component: {fileID: 23893133462142874}
-  m_Layer: 10
+  m_Layer: 2
   m_Name: Embassy (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   - component: {fileID: 4938848350231094}
   - component: {fileID: 33665146865491026}
   - component: {fileID: 23595759316419458}
-  m_Layer: 10
+  m_Layer: 2
   m_Name: Embassy (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 4909604010505508}
   - component: {fileID: 33501942256364708}
   - component: {fileID: 23513805796996222}
-  m_Layer: 10
+  m_Layer: 2
   m_Name: Embassy (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 4766837752327656}
   - component: {fileID: 33835011173467538}
   - component: {fileID: 23809531852038082}
-  m_Layer: 10
+  m_Layer: 2
   m_Name: Embassy (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 4592963329284772}
   - component: {fileID: 114186791480289064}
   - component: {fileID: 65335963294799668}
-  m_Layer: 10
+  m_Layer: 2
   m_Name: Embassy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: 4766293546618512}
   - component: {fileID: 33658890465167116}
   - component: {fileID: 23278899872873444}
-  m_Layer: 10
+  m_Layer: 2
   m_Name: Embassy (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 4153815205354080}
   - component: {fileID: 33946185907283982}
   - component: {fileID: 23249950961818938}
-  m_Layer: 10
+  m_Layer: 2
   m_Name: Embassy (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -276,7 +276,7 @@ GameObject:
   - component: {fileID: 4480951336420804}
   - component: {fileID: 33646408784952032}
   - component: {fileID: 23042797461586680}
-  m_Layer: 10
+  m_Layer: 2
   m_Name: Embassy (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -293,7 +293,7 @@ GameObject:
   - component: {fileID: 4026811667859722}
   - component: {fileID: 33183208345426538}
   - component: {fileID: 23825907245635260}
-  m_Layer: 10
+  m_Layer: 2
   m_Name: Embassy (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -310,7 +310,7 @@ GameObject:
   - component: {fileID: 4704102699347970}
   - component: {fileID: 33449518573538880}
   - component: {fileID: 23936233801091272}
-  m_Layer: 10
+  m_Layer: 2
   m_Name: Embassy (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1305,22 +1305,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 629d116c9df424542b7b3cac84ece6f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnConstruct:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: c2d5ac4475941bf4db92abcf71488be8, type: 2}
-        m_MethodName: Raise
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: BuildingUnityEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
   OnConstructionComplete:
     m_PersistentCalls:
       m_Calls:

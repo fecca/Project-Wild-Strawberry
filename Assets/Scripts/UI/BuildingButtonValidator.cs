@@ -7,6 +7,6 @@ public class BuildingButtonValidator : ButtonValidator
 
 	public override bool Validate()
 	{
-		return ActiveBuilding.Value == null;
+		return ActiveBuilding.Value == null || ActiveBuilding.Value.GetState() != BuildingState.Placing;
 	}
 }

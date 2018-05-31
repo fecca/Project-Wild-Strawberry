@@ -28,17 +28,28 @@ public class BuildingController : MonoBehaviour
 		ActiveBuilding.Value = Instantiate(building);
 	}
 
-	public void ConstructBuilding(Building building)
+	public void PlaceBuilding(Building building)
 	{
+		building.Place();
 		BuildingsUnderConstruction.Add(building);
 		ActiveBuilding.Value = null;
 	}
 
+	public void BuildingConstructionCompleted(Building building)
+	{
+		BuildingsUnderConstruction.Remove(building);
+		ActiveBuildings.Add(building);
+	}
+
 	public void CancelBuilding(Building building)
 	{
-		ActiveBuildings.Remove(building);
 		ActiveBuilding.Value = null;
 		Destroy(building.gameObject);
+	}
+
+	public void SelectBuilding(Building building)
+	{
+		ActiveBuilding.Value = building;
 	}
 
 	public void ResetBuildings()
