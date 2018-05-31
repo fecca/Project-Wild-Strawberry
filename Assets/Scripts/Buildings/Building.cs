@@ -25,6 +25,8 @@ public class Building : MonoBehaviour
 	private Material PlacingMaterial;
 	[SerializeField]
 	private Renderer[] Renderers;
+	[SerializeField]
+	private GameObject Circle;
 
 	private void OnEnable()
 	{
@@ -57,29 +59,9 @@ public class Building : MonoBehaviour
 		StartCoroutine(Construct());
 	}
 
-	public void LeftClick()
+	public void Select(bool select)
 	{
-		switch (State)
-		{
-			case BuildingState.Inactive: break;
-			case BuildingState.Placing:
-				Place();
-				break;
-			case BuildingState.Constructing:
-			case BuildingState.Active:
-				OnSelect.Invoke(this);
-				break;
-			case BuildingState.Selected: break;
-			default: throw new NotSupportedException("BuildingState not supported: " + State);
-		}
-	}
-
-	public void RightClick()
-	{
-		if (State == BuildingState.Placing)
-		{
-			OnCancelled.Invoke(this);
-		}
+		Circle.SetActive(select);
 	}
 
 	public BuildingState GetState()

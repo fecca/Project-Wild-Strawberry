@@ -51,7 +51,15 @@ public class BuildingController : MonoBehaviour
 
 	public void SelectBuilding(Building building)
 	{
+		if (ActiveBuilding.Value != null)
+		{
+			ActiveBuilding.Value.Select(false);
+		}
 		ActiveBuilding.Value = building;
+		if (ActiveBuilding.Value != null)
+		{
+			ActiveBuilding.Value.Select(true);
+		}
 	}
 
 	public void ResetBuildings()

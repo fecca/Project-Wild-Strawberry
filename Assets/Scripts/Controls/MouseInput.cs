@@ -59,7 +59,7 @@ public class MouseInput : MonoBehaviour
 					}
 					else
 					{
-						if (ActiveBuilding.Value.GetState() != BuildingState.Placing && ActiveBuilding.Value != building)
+						if (ActiveBuilding.Value != building && ActiveBuilding.Value.GetState() != BuildingState.Placing)
 						{
 							OnBuildingSelected.Invoke(building);
 						}
