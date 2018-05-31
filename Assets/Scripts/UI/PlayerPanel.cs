@@ -8,6 +8,6 @@ public class PlayerPanel : MonoBehaviour
 
 	public void UpdateResources(PlayerResources playerResources)
 	{
-		GoldText.text = string.Format("Gold: {0}", Mathf.FloorToInt(playerResources.Gold));
+		GoldText.text = Mathf.FloorToInt(playerResources.Gold).ToString();
 	}
 }

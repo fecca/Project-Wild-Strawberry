@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class BuildingPanel : MonoBehaviour
@@ -13,12 +14,20 @@ public class BuildingPanel : MonoBehaviour
 	private Text ConstructionTimeText;
 	[SerializeField]
 	private Text State;
+	[SerializeField]
+	private BuildingsVariable AllBuildings;
+	[SerializeField]
+	private BuildingButton BuildingButtonPrefab;
+	[SerializeField]
+	private BuildingButtonValidator BuildingButtonValidator;
 
+	private List<BuildingButton> m_buildingButtons = new List<BuildingButton>();
 	private Building m_building;
 
 	private void Start()
 	{
 		ClearText();
+		CreateButtons();
 	}
 
 	private void Update()
@@ -40,6 +49,34 @@ public class BuildingPanel : MonoBehaviour
 		CostText.text = string.Empty;
 		ConstructionTimeText.text = string.Empty;
 		State.text = string.Empty;
+	}
+
+	public void CreateButtons()
+	{
+		if (BuildingButtonPrefab == null) { return; }
+		if (AllBuildings == null) { return; }
+
+		for (var i = AllBuildings.Value.Count - 1; i >= 0; i--)
+		{
+			var button = Instantiate(BuildingButtonPrefab, transform) as BuildingButton;
+			var position = new Vector3
+			{
+				x = transform.position.x + 20 + (i / 2 * 100),
+				z = transform.position.z,
+				y = transform.position.y + 10 + (i % 2 * 90)
+			};
+			button.Setup(AllBuildings.Value[i], BuildingButtonValidator, position);
+
+			m_buildingButtons.Add(button);
+		}
+	}
+
+	public void UpdateButtons(PlayerResources playerResources)
+	{
+		foreach (var button in m_buildingButtons)
+		{
+			button.UpdateVisibility(playerResources);
+		}
 	}
 
 	public void DisplayInformation(Building building)

@@ -107,7 +107,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 40
-    m_Alignment: 3
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -167,7 +167,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 40
-    m_Alignment: 3
+    m_Alignment: 6
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -200,7 +200,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 40
-    m_Alignment: 3
+    m_Alignment: 6
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -271,7 +271,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnPlaceBuilding: {fileID: 11400000, guid: 6ca5234a3e69b2d4182a988510d62986, type: 2}
-  ActiveBuilding: {fileID: 11400000, guid: 31c8402a66981174892287806376c5a0, type: 2}
   Button: {fileID: 114864688113294914}
   Image: {fileID: 114261550826868506}
   Name: {fileID: 114329736199024176}
@@ -315,10 +314,10 @@ RectTransform:
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 85, y: 0}
-  m_SizeDelta: {x: 30, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 4, y: 2}
+  m_SizeDelta: {x: 64, y: 64}
+  m_Pivot: {x: 0, y: 0}
 --- !u!224 &224465472649327138
 RectTransform:
   m_ObjectHideFlags: 1
@@ -332,11 +331,11 @@ RectTransform:
   m_Father: {fileID: 224790016555303340}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 84.99998, y: 16}
-  m_SizeDelta: {x: 30.000046, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: 24}
+  m_SizeDelta: {x: 100, y: 24}
+  m_Pivot: {x: 0, y: 1}
 --- !u!224 &224511691633729756
 RectTransform:
   m_ObjectHideFlags: 1
@@ -350,11 +349,11 @@ RectTransform:
   m_Father: {fileID: 224790016555303340}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 85, y: -16}
-  m_SizeDelta: {x: 30, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 4, y: -2}
+  m_SizeDelta: {x: 64, y: 64}
+  m_Pivot: {x: 0, y: 1}
 --- !u!224 &224790016555303340
 RectTransform:
   m_ObjectHideFlags: 1
