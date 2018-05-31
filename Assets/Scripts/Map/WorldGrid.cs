@@ -16,7 +16,8 @@ public class WorldGrid : MonoBehaviour
 
 	private void Update()
 	{
-		if (ActiveBuilding.Value == null || ActiveBuilding.Value.GetState() != BuildingState.Placing) { return; }
+		if (ActiveBuilding.Value == null) { return; }
+		if (ActiveBuilding.Value.GetState() != BuildingState.Placing) { return; }
 
 		FollowMouse();
 	}

@@ -58,7 +58,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114459628529131210}
-        m_MethodName: AddBuildingCost
+        m_MethodName: ReturnBuildingCost
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -98,7 +98,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114459628529131210}
-        m_MethodName: SubtractBuildingCost
+        m_MethodName: PayBuildingCost
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

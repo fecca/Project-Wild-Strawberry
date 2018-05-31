@@ -23,9 +23,9 @@ GameObject:
   - component: {fileID: 114301251832376086}
   - component: {fileID: 114025083509523820}
   - component: {fileID: 114490760260291940}
-  - component: {fileID: 114879378280826158}
   - component: {fileID: 114161674198478632}
   - component: {fileID: 114424623539178526}
+  - component: {fileID: 114879378280826158}
   m_Layer: 0
   m_Name: BuildingController
   m_TagString: Untagged
@@ -118,7 +118,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114713260966555868}
-        m_MethodName: BuildBuilding
+        m_MethodName: InstantiateBuilding
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -174,7 +174,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114713260966555868}
-        m_MethodName: BuildingConstructionCompleted
+        m_MethodName: ConstructionCompleted
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -197,33 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96c686177a919fd4588d2647ef953785, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnStart:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: ba91dec93a6673e469437455743d83bd, type: 2}
-        m_MethodName: Clear
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: 6432a0b75b0b3b94fbc7ef4fb83e77bc, type: 2}
-        m_MethodName: Clear
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+  ActiveBuilding: {fileID: 11400000, guid: 31c8402a66981174892287806376c5a0, type: 2}
   ActiveBuildings: {fileID: 11400000, guid: ba91dec93a6673e469437455743d83bd, type: 2}
   BuildingsUnderConstruction: {fileID: 11400000, guid: 6432a0b75b0b3b94fbc7ef4fb83e77bc,
     type: 2}
@@ -232,7 +206,6 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: 3e98ac4146981d94098355897324fd1f, type: 2}
-  ActiveBuilding: {fileID: 11400000, guid: 31c8402a66981174892287806376c5a0, type: 2}
 --- !u!114 &114879378280826158
 MonoBehaviour:
   m_ObjectHideFlags: 1

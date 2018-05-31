@@ -10,12 +10,12 @@ public class Player : MonoBehaviour
 		PlayerResources.Gold = PlayerResources.StartingGold.Value;
 	}
 
-	public void SubtractBuildingCost(Building building)
+	public void PayBuildingCost(Building building)
 	{
 		PlayerResources.Gold -= building.GetCost();
 	}
 
-	public void AddBuildingCost(Building building)
+	public void ReturnBuildingCost(Building building)
 	{
 		PlayerResources.Gold += building.GetCost();
 	}

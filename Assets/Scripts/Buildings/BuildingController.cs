@@ -1,29 +1,31 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class BuildingController : MonoBehaviour
 {
+	[Header("Buildings")]
 	[SerializeField]
-	private UnityEvent OnStart;
+	private BuildingVariable ActiveBuilding;
 	[SerializeField]
 	private BuildingRuntimeSet ActiveBuildings;
 	[SerializeField]
 	private BuildingRuntimeSet BuildingsUnderConstruction;
+
+	[Header("Resource management")]
 	[SerializeField]
 	private PlayerResources PlayerResources;
 	[SerializeField]
 	private FloatReference TickInterval;
-	[SerializeField]
-	private BuildingVariable ActiveBuilding;
 
 	private void Start()
 	{
-		OnStart.Invoke();
+		ActiveBuildings.Clear();
+		BuildingsUnderConstruction.Clear();
+
 		StartCoroutine(TickBuildings());
 	}
 
-	public void BuildBuilding(Building building)
+	public void InstantiateBuilding(Building building)
 	{
 		ActiveBuilding.Value = Instantiate(building);
 	}
@@ -35,7 +37,7 @@ public class BuildingController : MonoBehaviour
 		ActiveBuilding.Value = null;
 	}
 
-	public void BuildingConstructionCompleted(Building building)
+	public void ConstructionCompleted(Building building)
 	{
 		BuildingsUnderConstruction.Remove(building);
 		ActiveBuildings.Add(building);
