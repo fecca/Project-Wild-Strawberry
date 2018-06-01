@@ -28,6 +28,10 @@ public class Building : MonoBehaviour
 	[SerializeField]
 	private GameObject Circle;
 
+	[Header("Collision")]
+	[SerializeField]
+	private BuildingBounds[] BuildingBounds;
+
 	private void OnEnable()
 	{
 		gameObject.name = Data.Name;
@@ -56,6 +60,10 @@ public class Building : MonoBehaviour
 	public void Place()
 	{
 		gameObject.layer = LayerMask.NameToLayer("Building");
+		foreach (var buildingBounds in BuildingBounds)
+		{
+			buildingBounds.DisableTriggers();
+		}
 		StartCoroutine(Construct());
 	}
 

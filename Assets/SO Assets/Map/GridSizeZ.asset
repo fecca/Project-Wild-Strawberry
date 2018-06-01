@@ -11,4 +11,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb13bbfb08ee2184e987aed83fafe5c2, type: 3}
   m_Name: GridSizeZ
   m_EditorClassIdentifier: 
-  Value: 1
+  Value: 0.5
