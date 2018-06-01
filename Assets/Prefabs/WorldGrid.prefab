@@ -144,7 +144,7 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: b90a436f110337b488668953b1376d91, type: 2}
-  WorldSizeY:
+  WorldSizeZ:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: ea7bb6ac0b5160340a97b4f7a76360f2, type: 2}
@@ -152,7 +152,7 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: 63fe9493738992147a756b69ceeaf1cf, type: 2}
-  GridSizeY:
+  GridSizeZ:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: 7a0ed574109fbf042a1dd5b63a0f0eab, type: 2}

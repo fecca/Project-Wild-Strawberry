@@ -14,12 +14,13 @@ public class MouseInput : MonoBehaviour
 	{
 		if (EventSystem.current.IsPointerOverGameObject()) { return; }
 
-		RaycastHit hit;
-		int layerMask = (1 << LayerMask.NameToLayer("Building"));
-		layerMask |= (1 << LayerMask.NameToLayer("Ground"));
-		if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100f, layerMask))
+		if (Input.GetMouseButtonUp(0))
 		{
-			if (Input.GetMouseButtonUp(0))
+			int layerMask = (1 << LayerMask.NameToLayer("Ground"));
+			layerMask |= (1 << LayerMask.NameToLayer("Building"));
+
+			RaycastHit hit;
+			if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100f, layerMask))
 			{
 				/* Click ground
 				 * 1. ActiveBuilding != null

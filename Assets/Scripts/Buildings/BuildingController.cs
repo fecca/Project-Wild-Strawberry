@@ -27,6 +27,7 @@ public class BuildingController : MonoBehaviour
 
 	public void InstantiateBuilding(Building building)
 	{
+		SelectBuilding(null);
 		ActiveBuilding.Value = Instantiate(building);
 	}
 

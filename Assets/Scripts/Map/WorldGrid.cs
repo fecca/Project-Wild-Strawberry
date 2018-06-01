@@ -7,11 +7,11 @@ public class WorldGrid : MonoBehaviour
 	[SerializeField]
 	private FloatReference WorldSizeX;
 	[SerializeField]
-	private FloatReference WorldSizeY;
+	private FloatReference WorldSizeZ;
 	[SerializeField]
 	private FloatReference GridSizeX;
 	[SerializeField]
-	private FloatReference GridSizeY;
+	private FloatReference GridSizeZ;
 
 
 	private void Update()
@@ -27,7 +27,11 @@ public class WorldGrid : MonoBehaviour
 		RaycastHit hit;
 		if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100f, 1 << LayerMask.NameToLayer("Ground")))
 		{
-			ActiveBuilding.Value.transform.position = hit.point;
+			var position = hit.point;
+			position.x = hit.point.x - (hit.point.x % GridSizeX.Value);
+			position.y = hit.point.y;
+			position.z = hit.point.z - (hit.point.z % GridSizeZ.Value);
+			ActiveBuilding.Value.transform.position = position;
 		}
 	}
 }
