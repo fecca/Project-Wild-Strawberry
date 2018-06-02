@@ -31,11 +31,14 @@ public class Building : MonoBehaviour
 	[Header("Grid/Collision")]
 	[SerializeField]
 	private BuildingPlacementValidator BuildingPlacementValidator;
+	[SerializeField]
+	private BuildingGridBounds BuildingGridBounds;
 
 	private void OnEnable()
 	{
 		gameObject.name = Data.Name;
 		SetPlacementMaterial();
+		BuildingGridBounds.CreateCollision();
 		State = BuildingState.Placing;
 	}
 
@@ -64,12 +67,13 @@ public class Building : MonoBehaviour
 
 	public bool ValidatePlacement()
 	{
-		return State == BuildingState.Placing && BuildingPlacementValidator.Validate();
+		return State == BuildingState.Placing && BuildingPlacementValidator.Validate(BuildingGridBounds);
 	}
 
 	public void Place()
 	{
 		gameObject.layer = LayerMask.NameToLayer("Building");
+		BuildingGridBounds.DisableRenderers();
 		StartCoroutine(Construct());
 	}
 

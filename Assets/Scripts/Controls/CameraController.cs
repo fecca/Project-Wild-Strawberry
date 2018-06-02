@@ -5,31 +5,22 @@ public class CameraController : MonoBehaviour
 	[SerializeField]
 	private Camera Camera;
 	[SerializeField]
-	private FloatReference MaxZoomFieldOfView;
+	private FloatReference MinCameraDistance;
 	[SerializeField]
-	private FloatReference MinZoomFieldOfView;
+	private FloatReference MaxCameraDistance;
 	[SerializeField]
 	private FloatReference ZoomSensitivity;
 	[SerializeField]
 	private FloatReference ZoomSpeed;
 
-	private float zoomPos = 0;
-
 	private void LateUpdate()
 	{
-		zoomPos += Input.GetAxis("Mouse ScrollWheel") * Time.deltaTime * ZoomSensitivity.Value;
-		zoomPos = Mathf.Clamp01(zoomPos);
-
 		var distanceToGround = DistanceToGround();
-		var targetHeight = Mathf.Lerp(MinZoomFieldOfView.Value, MaxZoomFieldOfView.Value, zoomPos);
-		var difference = 0f;
-
-		if (distanceToGround != targetHeight)
+		var scrollValue = -Input.GetAxis("Mouse ScrollWheel");
+		if (distanceToGround > MinCameraDistance.Value && scrollValue > 0 || distanceToGround < MaxCameraDistance.Value && scrollValue < 0)
 		{
-			difference = targetHeight - distanceToGround;
+			Camera.transform.position += Camera.transform.forward * scrollValue * ZoomSensitivity.Value;
 		}
-
-		Camera.transform.position = Vector3.Lerp(Camera.transform.position, new Vector3(Camera.transform.position.x, targetHeight + difference, Camera.transform.position.z), Time.deltaTime * ZoomSpeed.Value);
 	}
 
 	private float DistanceToGround()

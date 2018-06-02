@@ -1,17 +1,9 @@
 ﻿using UnityEngine;
 
-public class BuildingPlacementValidator : Validator
+public class BuildingPlacementValidator : MonoBehaviour
 {
-	[SerializeField]
-	private BuildingGridBounds BuildingGridBounds;
-
-	private void OnEnable()
+	public bool Validate(BuildingGridBounds buildingGridBounds)
 	{
-		BuildingGridBounds.CreateCollision();
-	}
-
-	public override bool Validate()
-	{
-		return BuildingGridBounds.Collisions == 0;
+		return buildingGridBounds.Collisions == 0;
 	}
 }

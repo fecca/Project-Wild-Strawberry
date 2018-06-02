@@ -39,7 +39,7 @@ public class BuildingPlacementTrigger : MonoBehaviour
 		m_buildingGridBounds.Collisions--;
 	}
 
-	public void DisableTriggers()
+	public void DisableRenderer()
 	{
 		m_renderer.enabled = false;
 	}

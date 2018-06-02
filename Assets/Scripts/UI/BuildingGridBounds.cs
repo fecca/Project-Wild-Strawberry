@@ -32,4 +32,12 @@ public class BuildingGridBounds : MonoBehaviour
 			}
 		}
 	}
+
+	public void DisableRenderers()
+	{
+		foreach (var trigger in Triggers)
+		{
+			trigger.DisableRenderer();
+		}
+	}
 }

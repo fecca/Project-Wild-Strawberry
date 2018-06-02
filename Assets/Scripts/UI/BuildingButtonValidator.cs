@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 
-public class BuildingButtonValidator : Validator
+public class BuildingButtonValidator : MonoBehaviour
 {
 	[SerializeField]
 	private BuildingVariable ActiveBuilding;
 
-	public override bool Validate()
+	public bool Validate()
 	{
 		return ActiveBuilding.Value == null || ActiveBuilding.Value.GetState() != BuildingState.Placing;
 	}
