@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class BuildingButtonValidator : ButtonValidator
+public class BuildingButtonValidator : Validator
 {
 	[SerializeField]
 	private BuildingVariable ActiveBuilding;

@@ -31,6 +31,8 @@ public class Building : MonoBehaviour
 	[Header("Collision")]
 	[SerializeField]
 	private BuildingBounds[] BuildingBounds;
+	[SerializeField]
+	private BuildingPlacementValidator BuildingPlacementValidator;
 
 	private void OnEnable()
 	{
@@ -57,13 +59,14 @@ public class Building : MonoBehaviour
 		OnConstructionComplete.Invoke(this);
 	}
 
+	public bool ValidatePlacement()
+	{
+		return State == BuildingState.Placing && BuildingPlacementValidator.Validate();
+	}
+
 	public void Place()
 	{
 		gameObject.layer = LayerMask.NameToLayer("Building");
-		foreach (var buildingBounds in BuildingBounds)
-		{
-			buildingBounds.DisableTriggers();
-		}
 		StartCoroutine(Construct());
 	}
 

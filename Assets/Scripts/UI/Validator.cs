@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public abstract class ButtonValidator : MonoBehaviour
+public abstract class Validator : MonoBehaviour
 {
 	public abstract bool Validate();
 }

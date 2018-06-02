@@ -22,35 +22,21 @@ public class MouseInput : MonoBehaviour
 			RaycastHit hit;
 			if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100f, layerMask))
 			{
-				/* Click ground
-				 * 1. ActiveBuilding != null
-				 *  1a. ActiveBuilding.State == Placing
-				 *	 ? => ActiveBuilding.Place
-				 *	 : => null.Select
-				 */
-				if (LayerMask.LayerToName(hit.collider.gameObject.layer).Equals("Ground"))
+				if (ActiveBuilding.Value != null)
 				{
-					if (ActiveBuilding.Value != null)
+					if (ActiveBuilding.Value.ValidatePlacement())
 					{
-						if (ActiveBuilding.Value.GetState() == BuildingState.Placing)
-						{
-							OnBuildingPlaced.Invoke(ActiveBuilding.Value);
-						}
-						else
+						OnBuildingPlaced.Invoke(ActiveBuilding.Value);
+					}
+					else if (ActiveBuilding.Value.GetState() != BuildingState.Placing)
+					{
+						if (LayerMask.LayerToName(hit.collider.gameObject.layer).Equals("Ground"))
 						{
 							OnBuildingSelected.Invoke(null);
 						}
 					}
 				}
 
-				/* Click building
-				 * 0. building = GetComponent<Building>
-				 * 1. ActiveBuilding == null
-				 *  => building.Select
-				 * 2. ActiveBuilding != null
-				 *  2a. ActiveBuilding.State != Placing && ActiveBuilding != building
-				 *   => building.Select
-				 */
 				if (LayerMask.LayerToName(hit.collider.gameObject.layer).Equals("Building"))
 				{
 					var building = hit.collider.GetComponent<Building>();

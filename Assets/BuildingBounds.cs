@@ -8,10 +8,17 @@ public class BuildingBounds : MonoBehaviour
 	private Material CollisionMaterial;
 
 	private Renderer m_renderer;
+	private BuildingPlacementValidator m_validator;
+	private bool m_hasCollided;
 
 	private void Awake()
 	{
 		m_renderer = GetComponent<Renderer>();
+	}
+
+	public void Initialize(BuildingPlacementValidator validator)
+	{
+		m_validator = validator;
 	}
 
 	private void OnTriggerEnter(Collider other)
@@ -20,6 +27,7 @@ public class BuildingBounds : MonoBehaviour
 		{
 			m_renderer.sharedMaterial = CollisionMaterial;
 		}
+		m_validator.Collisions++;
 	}
 
 	private void OnTriggerExit(Collider other)
@@ -28,6 +36,7 @@ public class BuildingBounds : MonoBehaviour
 		{
 			m_renderer.sharedMaterial = Material;
 		}
+		m_validator.Collisions--;
 	}
 
 	public void DisableTriggers()
