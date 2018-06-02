@@ -1395,7 +1395,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb200ffeb1c36b344a151ba7f4c73fc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BuildingGridBounds: {fileID: 114285059676369634}
 --- !u!114 &114993889535881306
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1479,6 +1478,7 @@ MonoBehaviour:
   - {fileID: 23764207360223498}
   Circle: {fileID: 1090400849989972}
   BuildingPlacementValidator: {fileID: 114797488646185260}
+  BuildingGridBounds: {fileID: 114285059676369634}
 --- !u!212 &212908507538655414
 SpriteRenderer:
   m_ObjectHideFlags: 1
