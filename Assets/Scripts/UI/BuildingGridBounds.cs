@@ -16,7 +16,7 @@ public class BuildingGridBounds : MonoBehaviour
 	{
 		var width = BuildingData.ColliderData.Width;
 		var depth = BuildingData.ColliderData.Depth;
-		var unitSize = BuildingData.ColliderData.UnitSize;
+		var unitSize = BuildingData.ColliderData.UnitSize.Value;
 
 		for (var x = 0; x < width; x++)
 		{
