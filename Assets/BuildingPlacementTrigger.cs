@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class BuildingBounds : MonoBehaviour
+public class BuildingPlacementTrigger : MonoBehaviour
 {
 	[SerializeField]
 	private Material Material;
@@ -8,7 +8,7 @@ public class BuildingBounds : MonoBehaviour
 	private Material CollisionMaterial;
 
 	private Renderer m_renderer;
-	private BuildingPlacementValidator m_validator;
+	private BuildingGridBounds m_buildingGridBounds;
 	private bool m_hasCollided;
 
 	private void Awake()
@@ -16,9 +16,9 @@ public class BuildingBounds : MonoBehaviour
 		m_renderer = GetComponent<Renderer>();
 	}
 
-	public void Initialize(BuildingPlacementValidator validator)
+	public void Initialize(BuildingGridBounds buildingGridBounds)
 	{
-		m_validator = validator;
+		m_buildingGridBounds = buildingGridBounds;
 	}
 
 	private void OnTriggerEnter(Collider other)
@@ -27,7 +27,7 @@ public class BuildingBounds : MonoBehaviour
 		{
 			m_renderer.sharedMaterial = CollisionMaterial;
 		}
-		m_validator.Collisions++;
+		m_buildingGridBounds.Collisions++;
 	}
 
 	private void OnTriggerExit(Collider other)
@@ -36,7 +36,7 @@ public class BuildingBounds : MonoBehaviour
 		{
 			m_renderer.sharedMaterial = Material;
 		}
-		m_validator.Collisions--;
+		m_buildingGridBounds.Collisions--;
 	}
 
 	public void DisableTriggers()

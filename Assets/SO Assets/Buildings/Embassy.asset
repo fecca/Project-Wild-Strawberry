@@ -17,3 +17,4 @@ MonoBehaviour:
   Cost: 12
   ConstructionTime: 4
   TickValue: 0.1
+  ColliderData: {fileID: 11400000, guid: e1c6c829b11196440bb4cdc8a121a29a, type: 2}

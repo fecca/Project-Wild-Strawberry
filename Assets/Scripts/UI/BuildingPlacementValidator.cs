@@ -1,20 +1,17 @@
-﻿public class BuildingPlacementValidator : Validator
-{
-	public int Collisions { get; set; }
+﻿using UnityEngine;
 
-	private BuildingBounds[] BuildingBounds;
+public class BuildingPlacementValidator : Validator
+{
+	[SerializeField]
+	private BuildingGridBounds BuildingGridBounds;
 
 	private void OnEnable()
 	{
-		BuildingBounds = GetComponentsInChildren<BuildingBounds>();
-		foreach (var buildingBounds in BuildingBounds)
-		{
-			buildingBounds.Initialize(this);
-		}
+		BuildingGridBounds.CreateCollision();
 	}
 
 	public override bool Validate()
 	{
-		return Collisions == 0;
+		return BuildingGridBounds.Collisions == 0;
 	}
 }

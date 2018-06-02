@@ -9,4 +9,5 @@ public class BuildingData : ScriptableObject
 	public int Cost;
 	public int ConstructionTime;
 	public float TickValue;
+	public ColliderData ColliderData;
 }

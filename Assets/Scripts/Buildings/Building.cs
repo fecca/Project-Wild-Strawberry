@@ -28,20 +28,23 @@ public class Building : MonoBehaviour
 	[SerializeField]
 	private GameObject Circle;
 
-	[Header("Collision")]
-	[SerializeField]
-	private BuildingBounds[] BuildingBounds;
+	[Header("Grid/Collision")]
 	[SerializeField]
 	private BuildingPlacementValidator BuildingPlacementValidator;
 
 	private void OnEnable()
 	{
 		gameObject.name = Data.Name;
+		SetPlacementMaterial();
+		State = BuildingState.Placing;
+	}
+
+	private void SetPlacementMaterial()
+	{
 		foreach (var renderer in Renderers)
 		{
 			renderer.sharedMaterial = PlacingMaterial;
 		}
-		State = BuildingState.Placing;
 	}
 
 	private IEnumerator Construct()
