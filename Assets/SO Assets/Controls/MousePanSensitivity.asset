@@ -8,8 +8,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 015c2bbf1cf9c0f4dbc11e03d5421d4a, type: 3}
-  m_Name: ActiveBuildings
+  m_Script: {fileID: 11500000, guid: fb13bbfb08ee2184e987aed83fafe5c2, type: 3}
+  m_Name: MousePanSensitivity
   m_EditorClassIdentifier: 
-  Items:
-  - {fileID: 0}
+  Value: 100

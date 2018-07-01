@@ -1466,7 +1466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86e7479029c78624589e89fe220b6b8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BuildingData: {fileID: 11400000, guid: 0dbc8452db6571240a9757591e069ef4, type: 2}
+  ColliderData: {fileID: 11400000, guid: 6d7cf441dee44d2489343daa9384b522, type: 2}
   Prefab: {fileID: 114239918970598792, guid: c21b4727f6e1bd24ea9084ffbcedf035, type: 2}
 --- !u!114 &114401085524728300
 MonoBehaviour:

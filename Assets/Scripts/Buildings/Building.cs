@@ -38,7 +38,7 @@ public class Building : MonoBehaviour
 	{
 		gameObject.name = Data.Name;
 		SetPlacementMaterial();
-		BuildingGridBounds.CreateCollision();
+		BuildingGridBounds.EnableRenderers();
 		State = BuildingState.Placing;
 	}
 

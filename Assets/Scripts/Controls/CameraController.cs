@@ -12,12 +12,14 @@ public class CameraController : MonoBehaviour
 	private FloatReference ZoomSensitivity;
 	[SerializeField]
 	private FloatReference MouseRotationSensitivity;
+	[SerializeField]
+	private FloatReference MousePanSensitivity;
 
-	private Vector3 m_mousePosition;
 	private Vector3 m_groundPoint;
 
 	private void LateUpdate()
 	{
+		// Scroll
 		var distanceToGround = DistanceToGround();
 		var scrollValue = -Input.GetAxis("Mouse ScrollWheel");
 		if (distanceToGround > MinCameraDistance.Value && scrollValue > 0 || distanceToGround < MaxCameraDistance.Value && scrollValue < 0)
@@ -28,20 +30,23 @@ public class CameraController : MonoBehaviour
 		// Drag
 		if (Input.GetMouseButton(0))
 		{
-
+			var mouseX = Input.GetAxis("Mouse X");
+			var mouseZ = Input.GetAxis("Mouse Y");
+			var position = Camera.transform.position;
+			position += mouseX * Vector3.forward * Time.deltaTime * MousePanSensitivity.Value;
+			position += mouseZ * Vector3.right * Time.deltaTime * MousePanSensitivity.Value;
+			transform.position = position;
 		}
 
 		// Rotate
 		if (Input.GetMouseButtonDown(1))
 		{
-			m_mousePosition = Input.mousePosition;
 			m_groundPoint = GroundPoint();
 		}
 		if (Input.GetMouseButton(1))
 		{
 			var mouseX = Input.GetAxis("Mouse X");
 			transform.RotateAround(m_groundPoint, Vector3.up, mouseX * Time.deltaTime * MouseRotationSensitivity.Value);
-			m_mousePosition = Input.mousePosition;
 		}
 	}
 
