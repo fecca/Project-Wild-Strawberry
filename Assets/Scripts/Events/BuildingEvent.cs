@@ -8,6 +8,7 @@ public class BuildingEvent : ScriptableObject
 
 	public void Raise(Building building)
 	{
+		Debug.Log($"Raising event: {this}");
 		for (int i = Listeners.Count - 1; i >= 0; i--)
 		{
 			Listeners[i].OnEventRaised(building);

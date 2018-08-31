@@ -1,9 +1,9 @@
 ﻿public enum BuildingEventType
 {
-	ButtonPressed,
-	Purchased,
-	Placed,
+	ButtonPress,
+	Purchase,
+	Construct,
+	Cancel,
 	Constructed,
-	Selected,
-	Cancelled,
+	Select,
 }

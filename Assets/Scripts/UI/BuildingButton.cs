@@ -32,6 +32,6 @@ public class BuildingButton : MonoBehaviour
 
 	public void Click()
 	{
-		EventManager.TriggerEvent(BuildingEventType.ButtonPressed, m_building);
+		EventManager.TriggerEvent(BuildingEventType.ButtonPress, m_building);
 	}
 }

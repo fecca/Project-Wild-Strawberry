@@ -28,12 +28,12 @@ public class EventManager : MonoBehaviour
 
 	private void SetupBuildingEvents()
 	{
-		m_buildingEvents.Add(BuildingEventType.ButtonPressed, OnBuildingButtonPressed);
-		m_buildingEvents.Add(BuildingEventType.Purchased, OnBuildingPurchased);
-		m_buildingEvents.Add(BuildingEventType.Placed, OnBuildingPlaced);
-		m_buildingEvents.Add(BuildingEventType.Cancelled, OnBuildingCancelled);
+		m_buildingEvents.Add(BuildingEventType.ButtonPress, OnBuildingButtonPressed);
+		m_buildingEvents.Add(BuildingEventType.Purchase, OnBuildingPurchased);
+		m_buildingEvents.Add(BuildingEventType.Construct, OnBuildingPlaced);
+		m_buildingEvents.Add(BuildingEventType.Cancel, OnBuildingCancelled);
 		m_buildingEvents.Add(BuildingEventType.Constructed, OnBuildingConstructed);
-		m_buildingEvents.Add(BuildingEventType.Selected, OnBuildingSelected);
+		m_buildingEvents.Add(BuildingEventType.Select, OnBuildingSelected);
 	}
 
 	public static void TriggerEvent(BuildingEventType type, Building building)

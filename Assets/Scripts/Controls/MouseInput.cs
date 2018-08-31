@@ -22,13 +22,14 @@ public class MouseInput : MonoBehaviour
 				{
 					if (ActiveBuilding.Value.ValidatePlacement())
 					{
-						EventManager.TriggerEvent(BuildingEventType.Placed, ActiveBuilding.Value);
+						EventManager.TriggerEvent(BuildingEventType.Construct, ActiveBuilding.Value);
+						return;
 					}
 					else if (ActiveBuilding.Value.GetState() != BuildingState.Placing)
 					{
 						if (LayerMask.LayerToName(hit.collider.gameObject.layer).Equals("Ground"))
 						{
-							EventManager.TriggerEvent(BuildingEventType.Selected, null);
+							EventManager.TriggerEvent(BuildingEventType.Select, null);
 						}
 					}
 				}
@@ -38,13 +39,13 @@ public class MouseInput : MonoBehaviour
 					var building = hit.collider.GetComponent<Building>();
 					if (ActiveBuilding.Value == null)
 					{
-						EventManager.TriggerEvent(BuildingEventType.Selected, building);
+						EventManager.TriggerEvent(BuildingEventType.Select, building);
 					}
 					else
 					{
 						if (ActiveBuilding.Value != building && ActiveBuilding.Value.GetState() != BuildingState.Placing)
 						{
-							EventManager.TriggerEvent(BuildingEventType.Selected, building);
+							EventManager.TriggerEvent(BuildingEventType.Select, building);
 						}
 					}
 				}

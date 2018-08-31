@@ -29,7 +29,7 @@ public class BuildingController : MonoBehaviour
 	{
 		SelectBuilding(null);
 		ActiveBuilding.Value = Instantiate(building);
-		EventManager.TriggerEvent(BuildingEventType.Purchased, building);
+		EventManager.TriggerEvent(BuildingEventType.Purchase, building);
 	}
 
 	private void SelectBuilding(Building building)

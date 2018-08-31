@@ -19,6 +19,7 @@ public class BuildingEventListener : MonoBehaviour
 
 	public void OnEventRaised(Building building)
 	{
+		Debug.Log($"Received event: {Event}");
 		Response.Invoke(building);
 	}
 }
