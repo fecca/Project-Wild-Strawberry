@@ -3,8 +3,6 @@ using UnityEngine.UI;
 
 public class BuildingButton : MonoBehaviour
 {
-	//[SerializeField]
-	//private BuildingEvent OnBuildingButtonPressed;
 	[SerializeField]
 	private Button Button;
 	[SerializeField]
@@ -21,12 +19,12 @@ public class BuildingButton : MonoBehaviour
 	public void Setup(Building building, Vector3 position)
 	{
 		m_building = building;
-		transform.name = building.GetDisplayName();
+		transform.name = building.DisplayName();
 		transform.position = position;
-		Image.sprite = building.GetIcon();
-		Name.text = string.Format("{0}", building.GetDisplayName());
-		CostText.text = string.Format("{0}g", building.GetCost());
-		TimeText.text = string.Format("{0}s", building.GetConstructionTime());
+		Image.sprite = building.Icon();
+		Name.text = string.Format("{0}", building.DisplayName());
+		CostText.text = string.Format("{0}g", building.Cost());
+		TimeText.text = string.Format("{0}s", building.ConstructionTime());
 		gameObject.SetActive(true);
 	}
 

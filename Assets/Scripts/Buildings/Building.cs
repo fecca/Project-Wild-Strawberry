@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 public class Building : MonoBehaviour
@@ -25,6 +24,12 @@ public class Building : MonoBehaviour
 	private BuildingPlacementValidator BuildingPlacementValidator;
 	[SerializeField]
 	private BuildingGridBounds BuildingGridBounds;
+
+	public string DisplayName { get { return Data.Name; } }
+	public int Cost { get { return Data.Cost; } }
+	public int ConstructionTime { get { return Data.ConstructionTime; } }
+	public Sprite Icon { get { return Data.Icon; } }
+	public float TickValue { get { return Data.TickValue; } }
 
 	private void OnEnable()
 	{
@@ -53,7 +58,7 @@ public class Building : MonoBehaviour
 			Renderers[i].sharedMaterial = Material;
 		}
 
-		State = BuildingState.Active;
+		State = BuildingState.Idle;
 		EventManager.TriggerEvent(BuildingEventType.Constructed, this);
 	}
 
@@ -77,30 +82,5 @@ public class Building : MonoBehaviour
 	public BuildingState GetState()
 	{
 		return State;
-	}
-
-	public string GetDisplayName()
-	{
-		return Data.Name;
-	}
-
-	public int GetCost()
-	{
-		return Data.Cost;
-	}
-
-	public int GetConstructionTime()
-	{
-		return Data.ConstructionTime;
-	}
-
-	public Sprite GetIcon()
-	{
-		return Data.Icon;
-	}
-
-	public float GetTickValue()
-	{
-		return Data.TickValue;
 	}
 }

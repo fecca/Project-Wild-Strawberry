@@ -54,7 +54,7 @@ public class BuildingController : MonoBehaviour
 			var totalValue = 0f;
 			foreach (var building in ActiveBuildings.Items)
 			{
-				totalValue += building.GetTickValue();
+				totalValue += building.TickValue();
 			}
 
 			PlayerResources.Gold += totalValue;
@@ -69,7 +69,7 @@ public class BuildingController : MonoBehaviour
 			return;
 		}
 
-		if (PlayerResources.Gold >= building.GetCost())
+		if (PlayerResources.Gold >= building.Cost())
 		{
 			InstantiateBuilding(building);
 		}

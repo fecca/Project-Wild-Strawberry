@@ -3,6 +3,6 @@
 	Inactive,
 	Placing,
 	Constructing,
-	Active,
+	Idle,
 	Selected,
 }
