@@ -113,7 +113,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114400631313916704}
-        m_MethodName: UpdateResources
+        m_MethodName: OnPlayerResourcesUpdated
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

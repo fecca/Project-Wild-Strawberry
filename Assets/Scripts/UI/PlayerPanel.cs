@@ -7,7 +7,7 @@ public class PlayerPanel : MonoBehaviour
 	[SerializeField]
 	private Text GoldText;
 
-	public void UpdateResources(PlayerResources playerResources)
+	public void OnPlayerResourcesUpdated(PlayerResources playerResources)
 	{
 		GoldText.text = Mathf.FloorToInt(playerResources.Gold).ToString();
 	}

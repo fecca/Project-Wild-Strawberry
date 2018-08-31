@@ -18,6 +18,8 @@ public class EventManager : MonoBehaviour
 	[SerializeField]
 	private BuildingEvent OnBuildingPlaced;
 	[SerializeField]
+	private BuildingEvent OnBuildingCancelled;
+	[SerializeField]
 	private BuildingEvent OnBuildingConstructed;
 	[SerializeField]
 	private BuildingEvent OnBuildingSelected;
@@ -29,6 +31,7 @@ public class EventManager : MonoBehaviour
 		m_buildingEvents.Add(BuildingEventType.ButtonPressed, OnBuildingButtonPressed);
 		m_buildingEvents.Add(BuildingEventType.Purchased, OnBuildingPurchased);
 		m_buildingEvents.Add(BuildingEventType.Placed, OnBuildingPlaced);
+		m_buildingEvents.Add(BuildingEventType.Cancelled, OnBuildingCancelled);
 		m_buildingEvents.Add(BuildingEventType.Constructed, OnBuildingConstructed);
 		m_buildingEvents.Add(BuildingEventType.Selected, OnBuildingSelected);
 	}

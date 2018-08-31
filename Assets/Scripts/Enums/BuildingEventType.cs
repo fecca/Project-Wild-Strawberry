@@ -5,4 +5,5 @@
 	Placed,
 	Constructed,
 	Selected,
+	Cancelled,
 }

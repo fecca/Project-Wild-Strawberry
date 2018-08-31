@@ -14,7 +14,7 @@ MonoBehaviour:
   Type: 0
   Name: House
   Icon: {fileID: 21300000, guid: 0fa8bd21cbf21c3448614e8b937dffeb, type: 3}
-  Cost: 3
-  ConstructionTime: 10
+  Cost: 10
+  ConstructionTime: 25
   TickValue: 0.05
   ColliderData: {fileID: 11400000, guid: 6d7cf441dee44d2489343daa9384b522, type: 2}

@@ -230,7 +230,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114595225023625634}
-        m_MethodName: DisplayInformation
+        m_MethodName: OnBuildingSelected
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

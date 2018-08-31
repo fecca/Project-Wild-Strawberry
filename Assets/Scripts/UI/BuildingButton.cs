@@ -33,6 +33,5 @@ public class BuildingButton : MonoBehaviour
 	public void Click()
 	{
 		EventManager.TriggerEvent(BuildingEventType.ButtonPressed, m_building);
-		//OnBuildingButtonPressed.Raise(m_building);
 	}
 }

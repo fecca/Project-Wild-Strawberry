@@ -34,7 +34,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1261022875536376}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.45623577, y: 1.3632811, z: -1.5537505}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -56,6 +56,8 @@ MonoBehaviour:
   OnBuildingPurchased: {fileID: 11400000, guid: 8387f3e58ea0e1c4daee76228b04d18b,
     type: 2}
   OnBuildingPlaced: {fileID: 11400000, guid: c2d5ac4475941bf4db92abcf71488be8, type: 2}
+  OnBuildingCancelled: {fileID: 11400000, guid: 9eb62dd3637795a4f9fd00c82e26d5e4,
+    type: 2}
   OnBuildingConstructed: {fileID: 11400000, guid: 03992a8e6c880704d9716fba632c2cf0,
     type: 2}
   OnBuildingSelected: {fileID: 11400000, guid: fe7f7bfc06fc044438bc6c33a06467ed, type: 2}

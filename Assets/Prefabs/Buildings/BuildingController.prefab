@@ -22,8 +22,8 @@ GameObject:
   - component: {fileID: 114713260966555868}
   - component: {fileID: 114301251832376086}
   - component: {fileID: 114025083509523820}
-  - component: {fileID: 114490760260291940}
   - component: {fileID: 114161674198478632}
+  - component: {fileID: 114490760260291940}
   - component: {fileID: 114424623539178526}
   m_Layer: 0
   m_Name: BuildingController
@@ -61,7 +61,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114713260966555868}
-        m_MethodName: PlaceBuilding
+        m_MethodName: OnBuildingPlaced
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -89,7 +89,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114713260966555868}
-        m_MethodName: CancelBuilding
+        m_MethodName: OnBuildingCancelled
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -145,7 +145,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114713260966555868}
-        m_MethodName: SelectBuilding
+        m_MethodName: OnBuildingSelected
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -173,7 +173,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114713260966555868}
-        m_MethodName: ConstructionCompleted
+        m_MethodName: OnBuildingConstructed
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

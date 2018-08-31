@@ -31,18 +31,6 @@ public class BuildingPanel : MonoBehaviour
 		CreateButtons();
 	}
 
-	private void Update()
-	{
-		if (m_building != null)
-		{
-			TypeText.text = string.Format("Type: {0}", m_building.GetDisplayName());
-			DisplayNameText.text = string.Format("Name: {0}", m_building.GetDisplayName());
-			CostText.text = string.Format("Cost: {0}", m_building.GetCost());
-			ConstructionTimeText.text = string.Format("Construction time: {0}", m_building.GetConstructionTime());
-			State.text = string.Format("State: {0}", m_building.GetState());
-		}
-	}
-
 	private void ClearText()
 	{
 		TypeText.text = string.Empty;
@@ -72,10 +60,17 @@ public class BuildingPanel : MonoBehaviour
 		}
 	}
 
-	public void DisplayInformation(Building building)
+	public void OnBuildingSelected(Building building)
 	{
 		ClearText();
 
-		m_building = building;
+		if (m_building != null)
+		{
+			TypeText.text = string.Format("Type: {0}", m_building.GetDisplayName());
+			DisplayNameText.text = string.Format("Name: {0}", m_building.GetDisplayName());
+			CostText.text = string.Format("Cost: {0}", m_building.GetCost());
+			ConstructionTimeText.text = string.Format("Construction time: {0}", m_building.GetConstructionTime());
+			State.text = string.Format("State: {0}", m_building.GetState());
+		}
 	}
 }
