@@ -25,7 +25,6 @@ GameObject:
   - component: {fileID: 114490760260291940}
   - component: {fileID: 114161674198478632}
   - component: {fileID: 114424623539178526}
-  - component: {fileID: 114879378280826158}
   m_Layer: 0
   m_Name: BuildingController
   m_TagString: Untagged
@@ -118,7 +117,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114713260966555868}
-        m_MethodName: InstantiateBuilding
+        m_MethodName: OnBuildingButtonPressed
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -206,31 +205,3 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: 3e98ac4146981d94098355897324fd1f, type: 2}
---- !u!114 &114879378280826158
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1111253476974224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52d84e97e6a465041a289ab5142820cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: ce60f7cdb2bc1a146a49ecd632e7fe55, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114713260966555868}
-        m_MethodName: ResetBuildings
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null

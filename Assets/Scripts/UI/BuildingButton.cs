@@ -3,8 +3,8 @@ using UnityEngine.UI;
 
 public class BuildingButton : MonoBehaviour
 {
-	[SerializeField]
-	private BuildingEvent OnPlaceBuilding;
+	//[SerializeField]
+	//private BuildingEvent OnBuildingButtonPressed;
 	[SerializeField]
 	private Button Button;
 	[SerializeField]
@@ -17,12 +17,10 @@ public class BuildingButton : MonoBehaviour
 	private Text TimeText;
 
 	private Building m_building;
-	private BuildingButtonValidator m_validator;
 
-	public void Setup(Building building, BuildingButtonValidator validator, Vector3 position)
+	public void Setup(Building building, Vector3 position)
 	{
 		m_building = building;
-		m_validator = validator;
 		transform.name = building.GetDisplayName();
 		transform.position = position;
 		Image.sprite = building.GetIcon();
@@ -34,18 +32,7 @@ public class BuildingButton : MonoBehaviour
 
 	public void Click()
 	{
-		if (m_validator.Validate())
-		{
-			OnPlaceBuilding.Raise(m_building);
-		}
-	}
-
-	public void UpdateVisibility(PlayerResources playerResources)
-	{
-		var enabled = m_building.GetCost() <= playerResources.Gold;
-		Button.enabled = enabled;
-		var imageColor = Image.color;
-		imageColor.a = enabled ? 1.0f : 0.25f;
-		Image.color = imageColor;
+		EventManager.TriggerEvent(BuildingEventType.ButtonPressed, m_building);
+		//OnBuildingButtonPressed.Raise(m_building);
 	}
 }

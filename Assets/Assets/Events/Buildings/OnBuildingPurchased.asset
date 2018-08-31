@@ -8,6 +8,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ffd3525864603945b48876d477f3355, type: 3}
-  m_Name: OnBuildingsReset
+  m_Script: {fileID: 11500000, guid: df312b913b823d343824fa1d21ffeb65, type: 3}
+  m_Name: OnBuildingPurchased
   m_EditorClassIdentifier: 

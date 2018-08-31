@@ -4,14 +4,6 @@ using UnityEngine;
 
 public class Building : MonoBehaviour
 {
-	[Header("Events")]
-	[SerializeField]
-	private BuildingUnityEvent OnConstructionComplete;
-	[SerializeField]
-	private BuildingUnityEvent OnSelect;
-	[SerializeField]
-	private BuildingUnityEvent OnCancelled;
-
 	[Header("Data")]
 	[SerializeField]
 	private BuildingData Data;
@@ -62,7 +54,7 @@ public class Building : MonoBehaviour
 		}
 
 		State = BuildingState.Active;
-		OnConstructionComplete.Invoke(this);
+		EventManager.TriggerEvent(BuildingEventType.Constructed, this);
 	}
 
 	public bool ValidatePlacement()

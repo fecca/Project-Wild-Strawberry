@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class BuildingPanel : MonoBehaviour
 {
+	[Header("UI")]
 	[SerializeField]
 	private Text TypeText;
 	[SerializeField]
@@ -15,11 +16,11 @@ public class BuildingPanel : MonoBehaviour
 	[SerializeField]
 	private Text State;
 	[SerializeField]
-	private BuildingsVariable AllBuildings;
-	[SerializeField]
 	private BuildingButton BuildingButtonPrefab;
+
+	[Header("Data")]
 	[SerializeField]
-	private BuildingButtonValidator BuildingButtonValidator;
+	private BuildingsVariable AllBuildings;
 
 	private List<BuildingButton> m_buildingButtons = new List<BuildingButton>();
 	private Building m_building;
@@ -65,17 +66,9 @@ public class BuildingPanel : MonoBehaviour
 				z = transform.position.z,
 				y = transform.position.y + 10 + (i % 2 * 90)
 			};
-			button.Setup(AllBuildings.Value[i], BuildingButtonValidator, position);
+			button.Setup(AllBuildings.Value[i], position);
 
 			m_buildingButtons.Add(button);
-		}
-	}
-
-	public void UpdateButtons(PlayerResources playerResources)
-	{
-		foreach (var button in m_buildingButtons)
-		{
-			button.UpdateVisibility(playerResources);
 		}
 	}
 

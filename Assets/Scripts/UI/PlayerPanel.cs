@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class PlayerPanel : MonoBehaviour
 {
+	[Header("UI")]
 	[SerializeField]
 	private Text GoldText;
 

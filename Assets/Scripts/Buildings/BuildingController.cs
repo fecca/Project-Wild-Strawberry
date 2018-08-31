@@ -10,6 +10,10 @@ public class BuildingController : MonoBehaviour
 	private BuildingRuntimeSet ActiveBuildings;
 	[SerializeField]
 	private BuildingRuntimeSet BuildingsUnderConstruction;
+	//[SerializeField]
+	//private BuildingEvent OnBuildingPurchased;
+	//[SerializeField]
+	//private StringEvent OnBuildingPurchasedFailed;
 
 	[Header("Resource management")]
 	[SerializeField]
@@ -25,10 +29,32 @@ public class BuildingController : MonoBehaviour
 		StartCoroutine(TickBuildings());
 	}
 
+	public void OnBuildingButtonPressed(Building building)
+	{
+		if (ActiveBuilding.Value != null && ActiveBuilding.Value.GetState() == BuildingState.Placing)
+		{
+			EventManager.TriggerEvent(StringEventType.BuildingPurchasedFailed, $"Another building is already active");
+			//OnBuildingPurchasedFailed.Raise($"Another building is already active");
+			return;
+		}
+
+		if (PlayerResources.Gold >= building.GetCost())
+		{
+			InstantiateBuilding(building);
+		}
+		else
+		{
+			EventManager.TriggerEvent(StringEventType.BuildingPurchasedFailed, $"Not enough resources");
+			//OnBuildingPurchasedFailed.Raise($"Not enough resources");
+		}
+	}
+
 	public void InstantiateBuilding(Building building)
 	{
 		SelectBuilding(null);
 		ActiveBuilding.Value = Instantiate(building);
+		EventManager.TriggerEvent(BuildingEventType.Purchased, building);
+		//OnBuildingPurchased.Raise(building);
 	}
 
 	public void PlaceBuilding(Building building)
