@@ -20,9 +20,7 @@ public class BuildingButton : MonoBehaviour
 	{
 		m_building = building;
 		transform.name = building.DisplayName;
-		//transform.position = position;
 		GetComponent<RectTransform>().position += position;
-		//GetComponent<RectTransform>().ForceUpdateRectTransforms();
 		Image.sprite = building.Icon;
 		Name.text = string.Format("{0}", building.DisplayName);
 		CostText.text = string.Format("{0}g", building.Cost);

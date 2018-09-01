@@ -7,6 +7,8 @@ public class BuildingGridBounds : MonoBehaviour
 	private ColliderData ColliderData;
 	[SerializeField]
 	private BuildingPlacementTrigger Prefab;
+	[SerializeField]
+	private bool ShowColliders = true;
 
 	public int Collisions { get; set; }
 
@@ -35,6 +37,11 @@ public class BuildingGridBounds : MonoBehaviour
 				trigger.Initialize(this);
 				Triggers.Add(trigger);
 			}
+		}
+
+		if (!ShowColliders)
+		{
+			DisableRenderers();
 		}
 	}
 

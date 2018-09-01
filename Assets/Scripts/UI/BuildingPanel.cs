@@ -63,6 +63,8 @@ public class BuildingPanel : MonoBehaviour
 
 			ConstructMenu.SetActive(false);
 			ContextMenu.SetActive(true);
+
+			CreateContextButtons();
 		}
 	}
 
@@ -79,6 +81,10 @@ public class BuildingPanel : MonoBehaviour
 
 			m_buildingButtons.Add(button);
 		}
+	}
+
+	private void CreateContextButtons()
+	{
 	}
 
 	public void OnBuildingSelected(Building building)

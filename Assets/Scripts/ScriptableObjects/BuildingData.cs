@@ -10,4 +10,5 @@ public class BuildingData : ScriptableObject
 	public int ConstructionTime;
 	public float TickValue;
 	public ColliderData ColliderData;
+	public BuildingContextData ContextData;
 }
