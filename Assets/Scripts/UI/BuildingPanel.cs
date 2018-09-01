@@ -17,18 +17,22 @@ public class BuildingPanel : MonoBehaviour
 	private Text State;
 	[SerializeField]
 	private BuildingButton BuildingButtonPrefab;
+	[SerializeField]
+	private GameObject ConstructMenu;
+	[SerializeField]
+	private GameObject ContextMenu;
 
 	[Header("Data")]
 	[SerializeField]
 	private BuildingsVariable AllBuildings;
 
 	private List<BuildingButton> m_buildingButtons = new List<BuildingButton>();
-	private Building m_building;
 
 	private void Start()
 	{
 		ClearText();
 		CreateButtons();
+		SelectBuilding(null);
 	}
 
 	private void ClearText()
@@ -40,20 +44,37 @@ public class BuildingPanel : MonoBehaviour
 		State.text = string.Empty;
 	}
 
-	public void CreateButtons()
+	private void SelectBuilding(Building building)
+	{
+		ClearText();
+
+		if (building == null)
+		{
+			ConstructMenu.SetActive(true);
+			ContextMenu.SetActive(false);
+		}
+		else
+		{
+			TypeText.text = string.Format("Type: {0}", building.DisplayName);
+			DisplayNameText.text = string.Format("Name: {0}", building.DisplayName);
+			CostText.text = string.Format("Cost: {0}", building.Cost);
+			ConstructionTimeText.text = string.Format("Construction time: {0}", building.ConstructionTime);
+			State.text = string.Format("State: {0}", building.GetState());
+
+			ConstructMenu.SetActive(false);
+			ContextMenu.SetActive(true);
+		}
+	}
+
+	private void CreateButtons()
 	{
 		if (BuildingButtonPrefab == null) { return; }
 		if (AllBuildings == null) { return; }
 
 		for (var i = AllBuildings.Value.Count - 1; i >= 0; i--)
 		{
-			var button = Instantiate(BuildingButtonPrefab, transform) as BuildingButton;
-			var position = new Vector3
-			{
-				x = transform.position.x + 20 + (i / 2 * 100),
-				z = transform.position.z,
-				y = transform.position.y + 10 + (i % 2 * 90)
-			};
+			var button = Instantiate(BuildingButtonPrefab, ConstructMenu.transform) as BuildingButton;
+			var position = new Vector3 { x = (i * 100), z = 0, y = 0 };
 			button.Setup(AllBuildings.Value[i], position);
 
 			m_buildingButtons.Add(button);
@@ -62,15 +83,6 @@ public class BuildingPanel : MonoBehaviour
 
 	public void OnBuildingSelected(Building building)
 	{
-		ClearText();
-
-		if (m_building != null)
-		{
-			TypeText.text = string.Format("Type: {0}", m_building.DisplayName());
-			DisplayNameText.text = string.Format("Name: {0}", m_building.DisplayName());
-			CostText.text = string.Format("Cost: {0}", m_building.Cost());
-			ConstructionTimeText.text = string.Format("Construction time: {0}", m_building.ConstructionTime());
-			State.text = string.Format("State: {0}", m_building.GetState());
-		}
+		SelectBuilding(building);
 	}
 }
