@@ -1,4 +1,4 @@
 ﻿public enum StringEventType
 {
-	BuildingPurchasedFailed
+	ErrorMessage,
 }

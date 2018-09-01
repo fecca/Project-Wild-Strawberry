@@ -6,6 +6,7 @@ public class EventManager : MonoBehaviour
 	private void Awake()
 	{
 		SetupBuildingEvents();
+		SetupUnitEvents();
 		SetupStringEvents();
 	}
 
@@ -43,16 +44,35 @@ public class EventManager : MonoBehaviour
 
 	#endregion
 
+	#region UNIT EVENTS
+
+	[SerializeField]
+	private UnitEvent OnUnitTrained;
+
+	private static Dictionary<UnitEventType, UnitEvent> m_unitEvents = new Dictionary<UnitEventType, UnitEvent>();
+
+	private void SetupUnitEvents()
+	{
+		m_unitEvents.Add(UnitEventType.UnitTrained, OnUnitTrained);
+	}
+
+	public static void TriggerEvent(UnitEventType type, Unit unit)
+	{
+		m_unitEvents[type].Raise(unit);
+	}
+
+	#endregion
+
 	#region STRING EVENTS
 
 	[SerializeField]
-	private StringEvent OnBuildingPurchasedFailed;
+	private StringEvent OnErrorMessage;
 
 	private static Dictionary<StringEventType, StringEvent> m_stringEvents = new Dictionary<StringEventType, StringEvent>();
 
 	private void SetupStringEvents()
 	{
-		m_stringEvents.Add(StringEventType.BuildingPurchasedFailed, OnBuildingPurchasedFailed);
+		m_stringEvents.Add(StringEventType.ErrorMessage, OnErrorMessage);
 	}
 
 	public static void TriggerEvent(StringEventType type, string message)

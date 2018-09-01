@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
 [CreateAssetMenu]
-public class BuildingContextData : ScriptableObject
+public class ContextMenuData : ScriptableObject
 {
 }

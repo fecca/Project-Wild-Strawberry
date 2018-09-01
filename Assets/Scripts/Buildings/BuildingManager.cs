@@ -25,6 +25,14 @@ public class BuildingManager : MonoBehaviour
 		StartCoroutine(TickBuildings());
 	}
 
+	private void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.Return))
+		{
+			ActiveBuilding.Value.TrainUnit(UnitType.FilthyPeasant);
+		}
+	}
+
 	private void InstantiateBuilding(Building building)
 	{
 		SelectBuilding(null);
@@ -65,7 +73,7 @@ public class BuildingManager : MonoBehaviour
 	{
 		if (ActiveBuilding.Value != null && ActiveBuilding.Value.GetState() == BuildingState.Placing)
 		{
-			EventManager.TriggerEvent(StringEventType.BuildingPurchasedFailed, $"Another building is already active");
+			EventManager.TriggerEvent(StringEventType.ErrorMessage, $"Another building is already active");
 			return;
 		}
 
@@ -75,7 +83,7 @@ public class BuildingManager : MonoBehaviour
 		}
 		else
 		{
-			EventManager.TriggerEvent(StringEventType.BuildingPurchasedFailed, $"Not enough resources");
+			EventManager.TriggerEvent(StringEventType.ErrorMessage, $"Not enough resources");
 		}
 	}
 

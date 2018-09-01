@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 
-public class BuildingEventListener : MonoBehaviour
+public class UnitEventListener : MonoBehaviour
 {
 	[SerializeField]
-	private BuildingEvent Event;
+	private UnitEvent Event;
 	[SerializeField]
-	private BuildingUnityEvent Response = new BuildingUnityEvent();
+	private UnitUnityEvent Response = new UnitUnityEvent();
 
 	private void OnEnable()
 	{
@@ -17,9 +17,9 @@ public class BuildingEventListener : MonoBehaviour
 		Event.UnregisterListener(this);
 	}
 
-	public void OnEventRaised(Building building)
+	public void OnEventRaised(Unit unit)
 	{
 		Debug.Log($"{this} received event: {Event}");
-		Response.Invoke(building);
+		Response.Invoke(unit);
 	}
 }

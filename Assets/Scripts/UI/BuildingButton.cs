@@ -19,10 +19,10 @@ public class BuildingButton : MonoBehaviour
 	public void Setup(Building building, Vector3 position)
 	{
 		m_building = building;
-		transform.name = building.DisplayName;
+		transform.name = building.Name;
 		GetComponent<RectTransform>().position += position;
 		Image.sprite = building.Icon;
-		Name.text = string.Format("{0}", building.DisplayName);
+		Name.text = string.Format("{0}", building.Name);
 		CostText.text = string.Format("{0}g", building.Cost);
 		TimeText.text = string.Format("{0}s", building.ConstructionTime);
 		gameObject.SetActive(true);

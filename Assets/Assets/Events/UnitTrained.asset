@@ -8,6 +8,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7315b3da69e4836429992f829bff06c1, type: 3}
-  m_Name: BuildingPurchasedFailed
+  m_Script: {fileID: 11500000, guid: 41efd8b297cbb7f4bb432a7a3da28e30, type: 3}
+  m_Name: UnitTrained
   m_EditorClassIdentifier: 

@@ -242,6 +242,7 @@ GameObject:
   - component: {fileID: 4658666693138344}
   - component: {fileID: 114007569013834412}
   - component: {fileID: 65605050416178902}
+  - component: {fileID: 114390304105692182}
   m_Layer: 10
   m_Name: House
   m_TagString: Untagged
@@ -1382,6 +1383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 629d116c9df424542b7b3cac84ece6f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UnitBuilder: {fileID: 114390304105692182}
   Data: {fileID: 11400000, guid: 0dbc8452db6571240a9757591e069ef4, type: 2}
   State: 0
   Material: {fileID: 2100000, guid: 87d6f7ebdbab9f54c897b24dbe579d35, type: 2}
@@ -1420,6 +1422,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ColliderData: {fileID: 11400000, guid: 6d7cf441dee44d2489343daa9384b522, type: 2}
   Prefab: {fileID: 114239918970598792, guid: c21b4727f6e1bd24ea9084ffbcedf035, type: 2}
+  ShowColliders: 1
+--- !u!114 &114390304105692182
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1699105544881342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d1497a3de6b9c440ae2b7f264efd9e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114401085524728300
 MonoBehaviour:
   m_ObjectHideFlags: 1

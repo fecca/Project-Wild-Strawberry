@@ -15,7 +15,7 @@ public class OnScreenMessage : MonoBehaviour
 		m_text.color = m_text.color.WithAlpha(0.0f);
 	}
 
-	public void OnBuildingPurchasedFailed(string message)
+	public void OnErrorMessage(string message)
 	{
 		if (m_coroutine != null) { StopCoroutine(m_coroutine); }
 

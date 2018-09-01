@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class Building : MonoBehaviour
 {
+	[SerializeField]
+	private UnitBuilder UnitBuilder;
+
 	[Header("Data")]
 	[SerializeField]
 	private BuildingData Data;
@@ -25,7 +28,7 @@ public class Building : MonoBehaviour
 	[SerializeField]
 	private BuildingGridBounds BuildingGridBounds;
 
-	public string DisplayName { get { return Data.Name; } }
+	public string Name { get { return Data.Name; } }
 	public int Cost { get { return Data.Cost; } }
 	public int ConstructionTime { get { return Data.ConstructionTime; } }
 	public Sprite Icon { get { return Data.Icon; } }
@@ -82,5 +85,10 @@ public class Building : MonoBehaviour
 	public BuildingState GetState()
 	{
 		return State;
+	}
+
+	public void TrainUnit(UnitType type)
+	{
+		UnitBuilder.TrainUnit(type);
 	}
 }

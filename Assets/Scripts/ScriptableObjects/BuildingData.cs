@@ -4,11 +4,11 @@
 public class BuildingData : ScriptableObject
 {
 	public BuildingType Type;
+	public float TickValue;
+	public ColliderData ColliderData;
 	public string Name;
 	public Sprite Icon;
 	public int Cost;
 	public int ConstructionTime;
-	public float TickValue;
-	public ColliderData ColliderData;
-	public BuildingContextData ContextData;
+	public ContextMenuData ContextData;
 }

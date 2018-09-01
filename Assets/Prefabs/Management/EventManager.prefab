@@ -61,5 +61,5 @@ MonoBehaviour:
   OnBuildingConstructed: {fileID: 11400000, guid: 03992a8e6c880704d9716fba632c2cf0,
     type: 2}
   OnBuildingSelected: {fileID: 11400000, guid: fe7f7bfc06fc044438bc6c33a06467ed, type: 2}
-  OnBuildingPurchasedFailed: {fileID: 11400000, guid: ed4412ed79f4de1458a67d68f9cd8dfc,
-    type: 2}
+  OnUnitTrained: {fileID: 11400000, guid: 0974f87abb88bd24282e07a36f187bb2, type: 2}
+  OnErrorMessage: {fileID: 11400000, guid: ed4412ed79f4de1458a67d68f9cd8dfc, type: 2}
