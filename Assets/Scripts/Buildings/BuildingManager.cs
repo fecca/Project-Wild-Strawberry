@@ -25,14 +25,6 @@ public class BuildingManager : MonoBehaviour
 		StartCoroutine(TickBuildings());
 	}
 
-	private void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.Return))
-		{
-			ActiveBuilding.Value.TrainUnit(UnitType.FilthyPeasant);
-		}
-	}
-
 	private void InstantiateBuilding(Building building)
 	{
 		SelectBuilding(null);
@@ -109,5 +101,15 @@ public class BuildingManager : MonoBehaviour
 	public void OnBuildingSelected(Building building)
 	{
 		SelectBuilding(building);
+	}
+
+	public void OnEntityClicked(Entity entity)
+	{
+		if (!(entity is Building))
+		{
+			return;
+		}
+
+		SelectBuilding((Building)entity);
 	}
 }

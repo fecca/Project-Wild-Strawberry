@@ -1383,9 +1383,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 629d116c9df424542b7b3cac84ece6f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ButtonData: {fileID: 11400000, guid: 39601c92e0cfc2e4999fb9e116288700, type: 2}
+  MenuItems:
+  - {fileID: 114360868927589440, guid: 7c3f311e63b52e642b1b071acf32a76e, type: 2}
   UnitBuilder: {fileID: 114390304105692182}
   Data: {fileID: 11400000, guid: 0dbc8452db6571240a9757591e069ef4, type: 2}
-  ButtonData: {fileID: 11400000, guid: 39601c92e0cfc2e4999fb9e116288700, type: 2}
   State: 0
   Material: {fileID: 2100000, guid: 87d6f7ebdbab9f54c897b24dbe579d35, type: 2}
   PlacingMaterial: {fileID: 2100000, guid: 27601eddaee390e4e946c8a9709fbe7b, type: 2}

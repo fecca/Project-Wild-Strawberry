@@ -4,6 +4,8 @@ using UnityEngine.EventSystems;
 public class MouseInput : MonoBehaviour
 {
 	[SerializeField]
+	private LayerMask LayerMask;
+	[SerializeField]
 	private BuildingVariable ActiveBuilding;
 
 	private void Update()
@@ -14,40 +16,19 @@ public class MouseInput : MonoBehaviour
 		{
 			int layerMask = (1 << LayerMask.NameToLayer("Ground"));
 			layerMask |= (1 << LayerMask.NameToLayer("Building"));
+			layerMask |= (1 << LayerMask.NameToLayer("Unit"));
 
 			RaycastHit hit;
-			if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100f, layerMask))
+			if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100f, LayerMask))
 			{
-				if (ActiveBuilding.Value != null)
+				var interactable = hit.collider.GetComponent<IInteractable>();
+				if (interactable != null)
 				{
-					if (ActiveBuilding.Value.ValidatePlacement())
-					{
-						EventManager.TriggerEvent(BuildingEventType.Construct, ActiveBuilding.Value);
-						return;
-					}
-					else if (ActiveBuilding.Value.GetState() != BuildingState.Placing)
-					{
-						if (LayerMask.LayerToName(hit.collider.gameObject.layer).Equals("Ground"))
-						{
-							EventManager.TriggerEvent(BuildingEventType.Select, null);
-						}
-					}
+					interactable.Click();
 				}
-
-				if (LayerMask.LayerToName(hit.collider.gameObject.layer).Equals("Building"))
+				else if (LayerMask.LayerToName(hit.collider.gameObject.layer).Equals("Ground"))
 				{
-					var building = hit.collider.GetComponent<Building>();
-					if (ActiveBuilding.Value == null)
-					{
-						EventManager.TriggerEvent(BuildingEventType.Select, building);
-					}
-					else
-					{
-						if (ActiveBuilding.Value != building && ActiveBuilding.Value.GetState() != BuildingState.Placing)
-						{
-							EventManager.TriggerEvent(BuildingEventType.Select, building);
-						}
-					}
+					EventManager.TriggerEvent(BuildingEventType.Select, null);
 				}
 			}
 		}

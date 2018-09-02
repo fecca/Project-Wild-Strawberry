@@ -17,11 +17,13 @@ public class UnitEvent : ScriptableObject
 
 	public void RegisterListener(UnitEventListener listener)
 	{
+		Debug.Log($"Adding: {listener}");
 		Listeners.Add(listener);
 	}
 
 	public void UnregisterListener(UnitEventListener listener)
 	{
+		Debug.Log($"Removing: {listener}");
 		Listeners.Remove(listener);
 	}
 }

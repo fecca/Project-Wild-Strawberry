@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 114864688113294914}
   - component: {fileID: 114968443250436818}
   m_Layer: 5
-  m_Name: ButtonTemplate
+  m_Name: MenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -270,7 +270,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48b96555a79f4184b9981fe793228dc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Button: {fileID: 114864688113294914}
   Image: {fileID: 114261550826868506}
   Name: {fileID: 114329736199024176}
   CostText: {fileID: 114525419170366564}

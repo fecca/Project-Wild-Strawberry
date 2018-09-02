@@ -80,3 +80,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4687d602f41fe9f4493bf29629cb1301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerResources: {fileID: 11400000, guid: 63c1a984d8f9307419ccf90e070e340c, type: 2}

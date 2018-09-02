@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 public class UnitBuilder : MonoBehaviour
 {
 	private bool m_isTraining;
 
-	public void TrainUnit(UnitType type)
+	public void TrainUnit(Unit unit)
 	{
 		if (m_isTraining)
 		{
@@ -14,29 +13,18 @@ public class UnitBuilder : MonoBehaviour
 			return;
 		}
 
-		switch (type)
-		{
-			case UnitType.FilthyPeasant:
-				StartCoroutine(Train(type));
-				break;
-			default:
-				throw new NotImplementedException($"UnitType not implemented: {type}");
-		}
+		StartCoroutine(Train(unit));
 	}
 
-	private IEnumerator Train(UnitType type)
+	private IEnumerator Train(Unit prefab)
 	{
 		m_isTraining = true;
 
 		yield return new WaitForSeconds(2.0f);
 
-		var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-		cube.name = type.ToString();
-		var unit = cube.AddComponent<Unit>();
-		cube.AddComponent<Rigidbody>();
-		cube.transform.localScale = Vector3.one * 0.25f;
-		var randomPosition = UnityEngine.Random.insideUnitCircle.normalized * 1.5f;
-		cube.transform.position = transform.position + new Vector3(randomPosition.x, 1, randomPosition.y);
+		var unit = Instantiate(prefab) as Unit;
+		var randomPosition = Random.insideUnitCircle.normalized * 1.5f;
+		unit.transform.position = transform.position + new Vector3(randomPosition.x, 1, randomPosition.y);
 
 		m_isTraining = false;
 		EventManager.TriggerEvent(UnitEventType.UnitTrained, unit);

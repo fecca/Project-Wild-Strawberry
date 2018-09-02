@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EventManager : MonoBehaviour
@@ -7,6 +8,7 @@ public class EventManager : MonoBehaviour
 	{
 		SetupBuildingEvents();
 		SetupUnitEvents();
+		SetupEntityEvents();
 		SetupStringEvents();
 	}
 
@@ -47,18 +49,40 @@ public class EventManager : MonoBehaviour
 	#region UNIT EVENTS
 
 	[SerializeField]
+	private UnitEvent OnUnitButtonPressed;
+	[SerializeField]
 	private UnitEvent OnUnitTrained;
 
 	private static Dictionary<UnitEventType, UnitEvent> m_unitEvents = new Dictionary<UnitEventType, UnitEvent>();
 
 	private void SetupUnitEvents()
 	{
+		m_unitEvents.Add(UnitEventType.ButtonPress, OnUnitButtonPressed);
 		m_unitEvents.Add(UnitEventType.UnitTrained, OnUnitTrained);
 	}
 
 	public static void TriggerEvent(UnitEventType type, Unit unit)
 	{
 		m_unitEvents[type].Raise(unit);
+	}
+
+	#endregion
+
+	#region ENTITY EVENTS
+
+	[SerializeField]
+	private EntityEvent OnEntityClicked;
+
+	private static Dictionary<EntityEventType, EntityEvent> m_entityEvents = new Dictionary<EntityEventType, EntityEvent>();
+
+	private void SetupEntityEvents()
+	{
+		m_entityEvents.Add(EntityEventType.Click, OnEntityClicked);
+	}
+
+	public static void TriggerEvent(EntityEventType type, Entity entity)
+	{
+		m_entityEvents[type].Raise(entity);
 	}
 
 	#endregion

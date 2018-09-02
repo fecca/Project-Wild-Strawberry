@@ -1,98 +1,44 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class BuildingPanel : MonoBehaviour
 {
-	[Header("UI")]
 	[SerializeField]
-	private Text TypeText;
-	[SerializeField]
-	private Text DisplayNameText;
-	[SerializeField]
-	private Text CostText;
-	[SerializeField]
-	private Text ConstructionTimeText;
-	[SerializeField]
-	private Text State;
-	[SerializeField]
-	private BuildingButton BuildingButtonPrefab;
-	[SerializeField]
-	private GameObject ConstructMenu;
-	[SerializeField]
-	private GameObject ContextMenu;
+	private MenuButton MenuButtonPrefab;
 
-	[Header("Data")]
-	[SerializeField]
-	private BuildingsVariable AllBuildings;
+	private List<MenuButton> m_buttons = new List<MenuButton>();
+	private Entity m_activeEntity;
 
-	private List<BuildingButton> m_buildingButtons = new List<BuildingButton>();
-
-	private void Start()
+	private void CreateButtons(Entity[] menuItems)
 	{
-		ClearText();
-		CreateButtons();
-		SelectBuilding(null);
-	}
-
-	private void ClearText()
-	{
-		TypeText.text = string.Empty;
-		DisplayNameText.text = string.Empty;
-		CostText.text = string.Empty;
-		ConstructionTimeText.text = string.Empty;
-		State.text = string.Empty;
-	}
-
-	private void SelectBuilding(Building building)
-	{
-		ClearText();
-
-		if (building == null)
+		for (var i = 0; i < menuItems.Length; i++)
 		{
-			ConstructMenu.SetActive(true);
-			ContextMenu.SetActive(false);
-		}
-		else
-		{
-			UpdateInformation(building);
+			var button = Instantiate(MenuButtonPrefab, transform) as MenuButton;
+			var position = new Vector3 { x = 20 + (i * 100), z = 0, y = 0 };
+			button.Setup(OnButtonClicked, menuItems[i], position);
 
-			ConstructMenu.SetActive(false);
-			ContextMenu.SetActive(true);
+			m_buttons.Add(button);
 		}
 	}
 
-	private void UpdateInformation(Building building)
+	private void DestroyButtons()
 	{
-		TypeText.text = string.Format("Type: {0}", building.Name);
-		DisplayNameText.text = string.Format("Name: {0}", building.Name);
-		CostText.text = string.Format("Cost: {0}", building.Cost);
-		ConstructionTimeText.text = string.Format("Construction time: {0}", building.ConstructionTime);
-		State.text = string.Format("State: {0}", building.GetState());
-	}
-
-	private void CreateButtons()
-	{
-		if (BuildingButtonPrefab == null) { return; }
-		if (AllBuildings == null) { return; }
-
-		for (var i = AllBuildings.Value.Count - 1; i >= 0; i--)
+		foreach (var button in m_buttons)
 		{
-			var button = Instantiate(BuildingButtonPrefab, ConstructMenu.transform) as BuildingButton;
-			var position = new Vector3 { x = (i * 100), z = 0, y = 0 };
-			button.Setup(AllBuildings.Value[i], position);
-
-			m_buildingButtons.Add(button);
+			Destroy(button.gameObject);
 		}
+		m_buttons.Clear();
 	}
 
-	public void OnBuildingConstructed(Building building)
+	private void OnButtonClicked(Entity clickedEntity)
 	{
-		UpdateInformation(building);
+		m_activeEntity.TriggerButtonPress(clickedEntity);
 	}
 
-	public void OnBuildingSelected(Building building)
+	public void OnEntityClicked(Entity entity)
 	{
-		SelectBuilding(building);
+		m_activeEntity = entity;
+		DestroyButtons();
+		CreateButtons(entity.GetMenuItems());
 	}
 }

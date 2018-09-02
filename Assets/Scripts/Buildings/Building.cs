@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class Building : MonoBehaviour
+public class Building : Entity
 {
 	[SerializeField]
 	private UnitBuilder UnitBuilder;
@@ -9,8 +9,6 @@ public class Building : MonoBehaviour
 	[Header("Data")]
 	[SerializeField]
 	private BuildingData Data;
-	[SerializeField]
-	private ButtonData ButtonData;
 	[SerializeField]
 	private BuildingState State;
 
@@ -32,11 +30,6 @@ public class Building : MonoBehaviour
 
 	public float TickValue { get { return Data.TickValue; } }
 
-	public string Name { get { return ButtonData.Name; } }
-	public int Cost { get { return ButtonData.Cost; } }
-	public int ConstructionTime { get { return ButtonData.ConstructionTime; } }
-	public Sprite Icon { get { return ButtonData.Icon; } }
-
 	private void OnEnable()
 	{
 		gameObject.name = Data.Name;
@@ -57,7 +50,7 @@ public class Building : MonoBehaviour
 	{
 		State = BuildingState.Constructing;
 
-		var steps = (float)ButtonData.ConstructionTime / Renderers.Length;
+		var steps = (float)ConstructionTime / Renderers.Length;
 		for (var i = 0; i < Renderers.Length; i++)
 		{
 			yield return new WaitForSeconds(steps);
@@ -66,6 +59,40 @@ public class Building : MonoBehaviour
 
 		State = BuildingState.Idle;
 		EventManager.TriggerEvent(BuildingEventType.Constructed, this);
+	}
+
+	private void TrainUnit(Unit unit)
+	{
+		if (State != BuildingState.Idle)
+		{
+			EventManager.TriggerEvent(StringEventType.ErrorMessage, "Building is not ready yet");
+			return;
+		}
+
+		UnitBuilder.TrainUnit(unit);
+	}
+
+	public override void Click()
+	{
+		if (ValidatePlacement())
+		{
+			EventManager.TriggerEvent(BuildingEventType.Construct, this);
+		}
+		else
+		{
+			EventManager.TriggerEvent(EntityEventType.Click, this);
+		}
+	}
+
+	public override void TriggerButtonPress(Entity entity)
+	{
+		if (!(entity is Unit))
+		{
+			EventManager.TriggerEvent(StringEventType.ErrorMessage, "Only units have build support");
+			return;
+		}
+
+		TrainUnit((Unit)entity);
 	}
 
 	public bool ValidatePlacement()
@@ -88,16 +115,5 @@ public class Building : MonoBehaviour
 	public BuildingState GetState()
 	{
 		return State;
-	}
-
-	public void TrainUnit(UnitType type)
-	{
-		if (State != BuildingState.Idle)
-		{
-			EventManager.TriggerEvent(StringEventType.ErrorMessage, "Building is not ready yet");
-			return;
-		}
-
-		UnitBuilder.TrainUnit(type);
 	}
 }

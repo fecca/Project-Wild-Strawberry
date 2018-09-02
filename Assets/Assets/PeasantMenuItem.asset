@@ -9,9 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6ee63109c7a792f49a11c874a829e456, type: 3}
-  m_Name: HouseButton
+  m_Name: FilthyPeasantMenuItem
   m_EditorClassIdentifier: 
-  Name: House
-  Icon: {fileID: 21300000, guid: 0fa8bd21cbf21c3448614e8b937dffeb, type: 3}
-  Cost: 10
-  ConstructionTime: 1
+  Name: Filthy peasant
+  Icon: {fileID: 21300000, guid: 6e9fc880a73cbcf46ace3201f802e774, type: 3}
+  Cost: 5
+  ConstructionTime: 5

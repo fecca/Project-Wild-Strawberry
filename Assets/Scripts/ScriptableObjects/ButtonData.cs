@@ -8,19 +8,3 @@ public class ButtonData : ScriptableObject
 	public int Cost;
 	public int ConstructionTime;
 }
-
-/* 
- * BUTTON DATA
- * Name
- * Icon
- * Cost
- * ConstructionTime
-*/
-
-/* 
- * ENTITY DATA
- * Type
- * TickValue
- * ColliderData
- * ContextData
-*/
