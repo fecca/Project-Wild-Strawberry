@@ -1385,6 +1385,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UnitBuilder: {fileID: 114390304105692182}
   Data: {fileID: 11400000, guid: 0dbc8452db6571240a9757591e069ef4, type: 2}
+  ButtonData: {fileID: 11400000, guid: 39601c92e0cfc2e4999fb9e116288700, type: 2}
   State: 0
   Material: {fileID: 2100000, guid: 87d6f7ebdbab9f54c897b24dbe579d35, type: 2}
   PlacingMaterial: {fileID: 2100000, guid: 27601eddaee390e4e946c8a9709fbe7b, type: 2}

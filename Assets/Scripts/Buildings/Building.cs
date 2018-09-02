@@ -10,6 +10,8 @@ public class Building : MonoBehaviour
 	[SerializeField]
 	private BuildingData Data;
 	[SerializeField]
+	private ButtonData ButtonData;
+	[SerializeField]
 	private BuildingState State;
 
 	[Header("Rendering")]
@@ -28,11 +30,12 @@ public class Building : MonoBehaviour
 	[SerializeField]
 	private BuildingGridBounds BuildingGridBounds;
 
-	public string Name { get { return Data.Name; } }
-	public int Cost { get { return Data.Cost; } }
-	public int ConstructionTime { get { return Data.ConstructionTime; } }
-	public Sprite Icon { get { return Data.Icon; } }
 	public float TickValue { get { return Data.TickValue; } }
+
+	public string Name { get { return ButtonData.Name; } }
+	public int Cost { get { return ButtonData.Cost; } }
+	public int ConstructionTime { get { return ButtonData.ConstructionTime; } }
+	public Sprite Icon { get { return ButtonData.Icon; } }
 
 	private void OnEnable()
 	{
@@ -54,7 +57,7 @@ public class Building : MonoBehaviour
 	{
 		State = BuildingState.Constructing;
 
-		var steps = (float)Data.ConstructionTime / Renderers.Length;
+		var steps = (float)ButtonData.ConstructionTime / Renderers.Length;
 		for (var i = 0; i < Renderers.Length; i++)
 		{
 			yield return new WaitForSeconds(steps);
@@ -89,6 +92,12 @@ public class Building : MonoBehaviour
 
 	public void TrainUnit(UnitType type)
 	{
+		if (State != BuildingState.Idle)
+		{
+			EventManager.TriggerEvent(StringEventType.ErrorMessage, "Building is not ready yet");
+			return;
+		}
+
 		UnitBuilder.TrainUnit(type);
 	}
 }
