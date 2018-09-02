@@ -33,8 +33,10 @@ public class CameraController : MonoBehaviour
 			var mouseX = Input.GetAxis("Mouse X");
 			var mouseZ = Input.GetAxis("Mouse Y");
 			var position = Camera.transform.position;
-			position += mouseX * Vector3.forward * Time.deltaTime * MousePanSensitivity.Value;
-			position += mouseZ * Vector3.right * Time.deltaTime * MousePanSensitivity.Value;
+			var forward = transform.forward;
+			forward.y = 0;
+			position -= mouseX * transform.right * Time.deltaTime * MousePanSensitivity.Value;
+			position -= mouseZ * forward * Time.deltaTime * MousePanSensitivity.Value;
 			transform.position = position;
 		}
 
