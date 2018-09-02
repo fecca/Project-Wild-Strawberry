@@ -21,15 +21,19 @@ public class MouseInput : MonoBehaviour
 			RaycastHit hit;
 			if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100f, LayerMask))
 			{
-				var interactable = hit.collider.GetComponent<IInteractable>();
-				if (interactable != null)
-				{
-					interactable.Click();
-				}
-				else if (LayerMask.LayerToName(hit.collider.gameObject.layer).Equals("Ground"))
-				{
-					EventManager.TriggerEvent(BuildingEventType.Select, null);
-				}
+				var entity = hit.collider.GetComponent<Entity>();
+				EventManager.TriggerEvent(EntityEventType.Click, entity);
+
+				//var interactable = hit.collider.GetComponent<IInteractable>();
+				//if (interactable != null)
+				//{
+				//	interactable.Click();
+				//}
+				//else
+				//if (LayerMask.LayerToName(hit.collider.gameObject.layer).Equals("Ground"))
+				//{
+				//	EventManager.TriggerEvent(BuildingEventType.Select, null);
+				//}
 			}
 		}
 	}

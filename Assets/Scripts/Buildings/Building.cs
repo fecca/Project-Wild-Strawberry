@@ -19,8 +19,6 @@ public class Building : Entity
 	private Material PlacingMaterial;
 	[SerializeField]
 	private Renderer[] Renderers;
-	[SerializeField]
-	private GameObject Circle;
 
 	[Header("Grid/Collision")]
 	[SerializeField]
@@ -80,7 +78,7 @@ public class Building : Entity
 		}
 		else
 		{
-			EventManager.TriggerEvent(EntityEventType.Click, this);
+			Select(true);
 		}
 	}
 
@@ -105,11 +103,6 @@ public class Building : Entity
 		gameObject.layer = LayerMask.NameToLayer("Building");
 		BuildingGridBounds.DisableRenderers();
 		StartCoroutine(Construct());
-	}
-
-	public void Select(bool select)
-	{
-		Circle.SetActive(select);
 	}
 
 	public BuildingState GetState()

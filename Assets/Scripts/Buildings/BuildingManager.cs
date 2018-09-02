@@ -5,7 +5,7 @@ public class BuildingManager : MonoBehaviour
 {
 	[Header("Buildings")]
 	[SerializeField]
-	private BuildingVariable ActiveBuilding;
+	protected BuildingVariable ActiveBuilding;
 	[SerializeField]
 	private BuildingRuntimeSet ActiveBuildings;
 	[SerializeField]
@@ -27,22 +27,9 @@ public class BuildingManager : MonoBehaviour
 
 	private void InstantiateBuilding(Building building)
 	{
-		SelectBuilding(null);
+		//SelectEntity(null);
 		ActiveBuilding.Value = Instantiate(building);
 		EventManager.TriggerEvent(BuildingEventType.Purchase, building);
-	}
-
-	private void SelectBuilding(Building building)
-	{
-		if (ActiveBuilding.Value != null)
-		{
-			ActiveBuilding.Value.Select(false);
-		}
-		ActiveBuilding.Value = building;
-		if (ActiveBuilding.Value != null)
-		{
-			ActiveBuilding.Value.Select(true);
-		}
 	}
 
 	private IEnumerator TickBuildings()
@@ -96,20 +83,5 @@ public class BuildingManager : MonoBehaviour
 	{
 		BuildingsUnderConstruction.Remove(building);
 		ActiveBuildings.Add(building);
-	}
-
-	public void OnBuildingSelected(Building building)
-	{
-		SelectBuilding(building);
-	}
-
-	public void OnEntityClicked(Entity entity)
-	{
-		if (!(entity is Building))
-		{
-			return;
-		}
-
-		SelectBuilding((Building)entity);
 	}
 }

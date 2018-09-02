@@ -1,4 +1,4 @@
 ﻿public interface IInteractable
 {
-	void Click();
+	void Click(bool select);
 }

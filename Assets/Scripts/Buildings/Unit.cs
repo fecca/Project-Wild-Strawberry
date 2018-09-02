@@ -2,7 +2,7 @@
 {
 	public override void Click()
 	{
-		EventManager.TriggerEvent(EntityEventType.Click, this);
+		Select(true);
 	}
 
 	public override void TriggerButtonPress(Entity entity)

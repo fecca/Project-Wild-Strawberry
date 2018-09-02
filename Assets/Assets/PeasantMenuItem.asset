@@ -9,9 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6ee63109c7a792f49a11c874a829e456, type: 3}
-  m_Name: FilthyPeasantMenuItem
+  m_Name: PeasantMenuItem
   m_EditorClassIdentifier: 
-  Name: Filthy peasant
+  Name: Peasant
   Icon: {fileID: 21300000, guid: 6e9fc880a73cbcf46ace3201f802e774, type: 3}
   Cost: 5
   ConstructionTime: 5

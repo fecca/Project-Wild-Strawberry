@@ -39,6 +39,9 @@ public class BuildingPanel : MonoBehaviour
 	{
 		m_activeEntity = entity;
 		DestroyButtons();
-		CreateButtons(entity.GetMenuItems());
+		if (entity != null)
+		{
+			CreateButtons(entity.GetMenuItems());
+		}
 	}
 }
