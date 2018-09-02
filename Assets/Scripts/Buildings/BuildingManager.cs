@@ -27,7 +27,6 @@ public class BuildingManager : MonoBehaviour
 
 	private void InstantiateBuilding(Building building)
 	{
-		//SelectEntity(null);
 		ActiveBuilding.Value = Instantiate(building);
 		EventManager.TriggerEvent(BuildingEventType.Purchase, building);
 	}
@@ -72,7 +71,7 @@ public class BuildingManager : MonoBehaviour
 		Destroy(building.gameObject);
 	}
 
-	public void OnBuildingPlaced(Building building)
+	public void OnBuildingConstructionStarted(Building building)
 	{
 		building.Place();
 		BuildingsUnderConstruction.Add(building);

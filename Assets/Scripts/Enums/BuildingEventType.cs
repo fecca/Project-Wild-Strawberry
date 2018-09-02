@@ -6,4 +6,5 @@
 	Cancel,
 	Constructed,
 	Select,
+	StartConstruction,
 }

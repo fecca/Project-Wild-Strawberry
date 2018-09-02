@@ -26,6 +26,8 @@ public class EventManager : MonoBehaviour
 	private BuildingEvent OnBuildingConstructed;
 	[SerializeField]
 	private BuildingEvent OnBuildingSelected;
+	[SerializeField]
+	private BuildingEvent OnBuildingConstructionStarted;
 
 	private static Dictionary<BuildingEventType, BuildingEvent> m_buildingEvents = new Dictionary<BuildingEventType, BuildingEvent>();
 
@@ -37,6 +39,7 @@ public class EventManager : MonoBehaviour
 		m_buildingEvents.Add(BuildingEventType.Cancel, OnBuildingCancelled);
 		m_buildingEvents.Add(BuildingEventType.Constructed, OnBuildingConstructed);
 		m_buildingEvents.Add(BuildingEventType.Select, OnBuildingSelected);
+		m_buildingEvents.Add(BuildingEventType.StartConstruction, OnBuildingConstructionStarted);
 	}
 
 	public static void TriggerEvent(BuildingEventType type, Building building)

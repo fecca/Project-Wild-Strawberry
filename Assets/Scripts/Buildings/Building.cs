@@ -26,7 +26,14 @@ public class Building : Entity
 	[SerializeField]
 	private BuildingGridBounds BuildingGridBounds;
 
+	private Collider m_collider;
+
 	public float TickValue { get { return Data.TickValue; } }
+
+	private void Awake()
+	{
+		m_collider = GetComponent<Collider>();
+	}
 
 	private void OnEnable()
 	{
@@ -100,6 +107,7 @@ public class Building : Entity
 
 	public void Place()
 	{
+		m_collider.enabled = true;
 		gameObject.layer = LayerMask.NameToLayer("Building");
 		BuildingGridBounds.DisableRenderers();
 		StartCoroutine(Construct());
@@ -108,5 +116,10 @@ public class Building : Entity
 	public BuildingState GetState()
 	{
 		return State;
+	}
+
+	public void SetState(BuildingState state)
+	{
+		State = state;
 	}
 }

@@ -61,6 +61,8 @@ MonoBehaviour:
   OnBuildingConstructed: {fileID: 11400000, guid: 03992a8e6c880704d9716fba632c2cf0,
     type: 2}
   OnBuildingSelected: {fileID: 11400000, guid: fe7f7bfc06fc044438bc6c33a06467ed, type: 2}
+  OnBuildingConstructionStarted: {fileID: 11400000, guid: 9aba20bd24daece4fb6325516278c1a4,
+    type: 2}
   OnUnitButtonPressed: {fileID: 11400000, guid: a8fe25449d476a945a6f6f5e07d45765,
     type: 2}
   OnUnitTrained: {fileID: 11400000, guid: 0974f87abb88bd24282e07a36f187bb2, type: 2}
